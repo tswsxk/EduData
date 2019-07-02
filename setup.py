@@ -9,5 +9,6 @@ setup(
     install_requires=[
         'mxnet',
         'tqdm',
+        'longling>=1.1.0'
     ]  # And any other dependencies foo needs
 )
