@@ -21,7 +21,10 @@ url_dict = {
 
 
 def get_data(dataset, data_dir=DEFAULT_DATADIR, override=False):
-    return download_data(url_dict[dataset], data_dir, override)
+    try:
+        return download_data(url_dict[dataset], data_dir, override)
+    except FileExistsError:
+        return path_append(data_dir, url_dict[dataset].split('/')[-1], to_str=True)
 
 
 def list_resources():
