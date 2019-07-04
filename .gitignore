@@ -109,3 +109,5 @@ venv.bak/
 .DS_Store
 
 # User Definition
+data/
+raw_data/
