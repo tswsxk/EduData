@@ -4,7 +4,7 @@
 from setuptools import setup
 
 setup(
-    name='XKT',
+    name='EduData',
     version='0.0.1',
     install_requires=[
         'mxnet',
