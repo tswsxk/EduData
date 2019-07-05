@@ -7,6 +7,8 @@ import json
 from longling import wf_open
 from tqdm import tqdm
 
+from EduData import train_valid_test
+
 
 def extract_students_log(source, target, ku_dict):
     """require big memory to run this function"""
@@ -47,4 +49,12 @@ if __name__ == '__main__':
     student_log_raw_file = root + "raw_data/junyi/junyi_ProblemLog_for_PSLC.txt"
     student_log_file = root + "data/junyi/student_log_kt.json"
     ku_dict_file = root + "data/junyi/graph_vertex.json"
-    extract_students_log(student_log_raw_file, student_log_file, ku_dict_file)
+    # extract_students_log(student_log_raw_file, student_log_file, ku_dict_file)
+
+    print(train_valid_test(
+        student_log_file,
+        valid_ratio=0.,
+        test_ratio=0.2,
+        root_dir=root + "data/junyi/",
+        silent=False,
+    ))
