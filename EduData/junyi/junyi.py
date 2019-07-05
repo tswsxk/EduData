@@ -5,6 +5,7 @@ import codecs
 import csv
 import json
 
+import networkx as nx
 import pandas
 from longling import wf_open, config_logging
 from tqdm import tqdm
@@ -35,10 +36,24 @@ def extract_prerequisite(source, target, ku_dict):
         for line in tqdm(csv.reader(f)):
             if not line[2]:
                 continue
+            successor = ku_dict[line[0]]
             for prerequisite in line[2].split(','):
-                prerequisite_edges.append((ku_dict[prerequisite], ku_dict[line[0]]))
+                predecessor = ku_dict[prerequisite]
+                if predecessor == successor:
+                    continue
+                if predecessor == 61 and successor == 498:
+                    # there is a loop 498 -> 510 -> 61 -> 498 in original data
+                    continue
+                prerequisite_edges.append((predecessor, successor))
 
         logger.info("prerequisite edges: %s" % len(prerequisite_edges))
+
+        # clean the loop in prerequisite graph
+
+        graph = nx.DiGraph()
+        graph.add_edges_from(prerequisite_edges)
+        assert not list(nx.algorithms.simple_cycles(graph)), "loop in DiGraph"
+
         json.dump(prerequisite_edges, wf, indent=2)
 
 
@@ -71,56 +86,19 @@ def extract_similarity(source, target, ku_dict):
         json.dump(similarity, wf, indent=2)
 
 
-def extract_students_log(source, target, ku_dict):
-    """require big memory to run this function"""
-
-    outcome = {
-        "INCORRECT": 0,
-        "CORRECT": 1,
-        "HINT": 0,
-    }
-
-    students = {}
-
-    with open(ku_dict) as f:
-        ku_dict = json.load(f)
-
-    with open(source) as f:
-        f.readline()
-        for line in tqdm(csv.reader(f, delimiter='\t'), "reading data"):
-            student, session, exercise, correct, timestamp = line[0], line[1], ku_dict[line[-5]], line[10], line[8]
-            if student not in students:
-                students[student] = {}
-            if session not in students[student]:
-                students[student][session] = []
-
-            students[student][session].append([int(timestamp), exercise, outcome[correct]])
-
-    with wf_open(target) as wf:
-        for student_id, sessions in tqdm(students.items(), "sorting"):
-            for session_id, exercises in sessions.items():
-                exercises.sort(key=lambda x: x[0])
-                exercise_response = [(exercise[1], exercise[2]) for exercise in exercises]
-                print(json.dumps(exercise_response), file=wf)
-
-
 if __name__ == '__main__':
-    raw_file = "../raw_data/junyi/junyi_Exercise_table.csv"
-    ku_dict_file = "../data/junyi/graph_vertex.json"
-    prerequisite_file = "../data/junyi/prerequisite.json"
+    root = "../../"
+    raw_file = root + "raw_data/junyi/junyi_Exercise_table.csv"
+    ku_dict_file = root + "data/junyi/graph_vertex.json"
+    prerequisite_file = root + "data/junyi/prerequisite.json"
     similarity_raw_files = [
-        "../raw_data/junyi/relationship_annotation_{}.csv".format(name) for name in ["testing", "training"]
+        root + "raw_data/junyi/relationship_annotation_{}.csv".format(name) for name in ["testing", "training"]
     ]
-    similarity_raw_file = "../raw_data/junyi/relationship_annotation.csv"
-    similarity_file = "../data/junyi/similarity.json"
-
-    student_log_raw_file = "../raw_data/junyi/junyi_ProblemLog_for_PSLC.txt"
-    student_log_file = "../data/junyi/student_log.json"
+    similarity_raw_file = root + "raw_data/junyi/relationship_annotation.csv"
+    similarity_file = root + "data/junyi/similarity.json"
 
     # merge_relationship_annotation(similarity_raw_files, similarity_raw_file)
 
     # build_ku_dict(raw_file, ku_dict_file)
-    # extract_prerequisite(raw_file, prerequisite_file, ku_dict_file)
+    extract_prerequisite(raw_file, prerequisite_file, ku_dict_file)
     # extract_similarity(similarity_raw_file, similarity_file, ku_dict_file)
-
-    extract_students_log(student_log_raw_file, student_log_file, ku_dict_file)
