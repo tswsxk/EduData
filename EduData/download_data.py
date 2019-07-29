@@ -1,7 +1,7 @@
 # coding: utf-8
 # create by tongshiwei on 2019/7/2
 
-__all__ = ["download_data", "get_data"]
+__all__ = ["url_dict", "get_data"]
 
 from longling import config_logging, LogLevel, path_append
 from longling.spider import download_data
