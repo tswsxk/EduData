@@ -51,8 +51,16 @@ if __name__ == '__main__':
     ku_dict_file = root + "data/junyi/graph_vertex.json"
     # extract_students_log(student_log_raw_file, student_log_file, ku_dict_file)
 
+    student_log_file_small = student_log_file + ".small"
+
+    with open(student_log_file) as f, wf_open(student_log_file_small) as wf:
+        for i, line in tqdm(enumerate(f)):
+            if i > 50000:
+                break
+            print(line, end="", file=wf)
+
     print(train_valid_test(
-        student_log_file,
+        student_log_file_small,
         valid_ratio=0.,
         test_ratio=0.2,
         root_dir=root + "data/junyi/",
