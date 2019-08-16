@@ -19,6 +19,9 @@ setup(
         'mxnet',
         'tqdm',
         'networkx',
-        'longling>=1.1.0'
+        'longling>=1.1.0',
+        'requests',
+        'bs4',
+        'rarfile',
     ]  # And any other dependencies foo needs
 )
