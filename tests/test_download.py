@@ -5,7 +5,8 @@ import time
 
 import pytest
 
-from EduData.Download import get_data, url_dict
+from EduData import get_data
+from EduData.download_data import url_dict
 
 
 def test_download(tmp_path):

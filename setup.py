@@ -3,12 +3,25 @@
 
 from setuptools import setup
 
+test_deps = [
+    'pytest>=4',
+    'pytest-cov>=2.6.0',
+    'pytest-pep8>=1',
+]
+
 setup(
-    name='XKT',
+    name='EduData',
     version='0.0.1',
+    extras_require={
+        'test': test_deps,
+    },
     install_requires=[
         'mxnet',
         'tqdm',
-        'longling>=1.1.0'
+        'networkx',
+        'longling>=1.1.0',
+        'requests',
+        'bs4',
+        'rarfile',
     ]  # And any other dependencies foo needs
 )
