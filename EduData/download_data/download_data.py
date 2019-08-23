@@ -8,7 +8,7 @@ from urllib.request import urlretrieve
 import requests
 from bs4 import BeautifulSoup
 from longling import config_logging, LogLevel, path_append
-from longling.spider import download_data
+# from longling.spider import download_data
 
 from .utils import decompress
 
@@ -36,6 +36,9 @@ url_dict = {
 
 def get_dataset_name():
     urls = []
+    for i in url_dict.values():
+        if i not in urls:
+            urls.append(i)
     url = prefix
     r = requests.get(url, timeout=30)
     r.raise_for_status()
@@ -46,23 +49,24 @@ def get_dataset_name():
         # 获得各个数据集名称
         h = a.get('href')
         if h[0] != '.':
-            temp = 'http://base.ustc.edu.cn/data/' + h + '\n'
+            temp = prefix + h
             # 避免重复
             if temp not in urls:
                 urls.append(temp)
-    return urls
+                # 避免ASSISTment和junyi的重复
+                if temp not in ['http://base.ustc.edu.cn/data/ASSISTment/',
+                                'http://base.ustc.edu.cn/data/JunyiAcademy_Math_Practicing_Log/']:
+                    url_dict[h[:-1]] = temp
 
 
-def download():
-    count = 0
-    os.makedirs('./data/', exist_ok=True)
-    lines = get_dataset_name()
+def download_data(url, data_dir, override):
     urls = []
-    for line in lines:
-        line = line.strip()
-        os.makedirs('./data/' + line[29:-1], exist_ok=True)
-        count += 1
-        r = requests.get(line, timeout=30)
+    os.makedirs(data_dir, exist_ok=True)
+    if url.endswith('/'):
+        # 以/结尾是文件夹，其余是文件
+        file_path = path_append(data_dir, url.split('/')[-2], to_str=True)
+        os.makedirs(file_path, exist_ok=True)
+        r = requests.get(url, timeout=30)
         r.raise_for_status()
         r.encoding = r.apparent_encoding
         soup = BeautifulSoup(r.text, "lxml")
@@ -71,16 +75,27 @@ def download():
             # 获得文件名
             h = a.get('href')
             if h[0] != '.':
-                temp = line + h
+                temp = url + h
                 # 避免重复
                 if temp not in urls:
                     urls.append(temp)
-                    file_path = './data/' + line[29:] + h
-                    print(temp + ' is saved as ' + file_path)
+                    temp_path = path_append(file_path, h, to_str=True)
+                    print(temp + ' is saved as ' + temp_path)
                     # 下载
-                    urlretrieve(temp, file_path)
+                    urlretrieve(temp, temp_path)
                     # 解压
-                    decompress(file_path)
+                    decompress(temp_path)
+                    if override:
+                        os.remove(temp_path)
+                        print(temp_path + ' is deleted.')
+    else:
+        file_path = path_append(data_dir, url.split('/')[-1], to_str=True)
+        print(url + ' is saved as ' + file_path)
+        urlretrieve(url, file_path)
+        decompress(file_path)
+        if override:
+            os.remove(file_path)
+            print(file_path + ' is deleted.')
 
 
 def get_data(dataset, data_dir=DEFAULT_DATADIR, override=False):
@@ -95,4 +110,6 @@ def list_resources():
 
 
 if __name__ == '__main__':
+    get_dataset_name()
+    list_resources()
     get_data("assistment-2009-2010-skill")
