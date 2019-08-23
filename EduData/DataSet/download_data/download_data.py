@@ -1,7 +1,7 @@
 # coding: utf-8
 # create by tongshiwei on 2019/7/2
 
-__all__ = ["url_dict", "get_data"]
+__all__ = ["url_dict", "get_data", "list_resources"]
 import os
 from urllib.request import urlretrieve
 
@@ -10,11 +10,14 @@ from bs4 import BeautifulSoup
 from longling import config_logging, LogLevel, path_append
 # from longling.spider import download_data
 
-from .utils import decompress
+try:
+    from .utils import decompress, reporthook4urlretrieve
+except (SystemError, ModuleNotFoundError):
+    from utils import decompress, reporthook4urlretrieve
 
-DEFAULT_DATADIR = path_append("../", "data/", to_str=True)
+DEFAULT_DATADIR = path_append("./", "", to_str=True)
 
-config_logging(logger="downloader", console_log_level=LogLevel.INFO)
+logger = config_logging(logger="downloader", console_log_level=LogLevel.INFO)
 
 prefix = 'http://base.ustc.edu.cn/data/'
 
@@ -80,25 +83,41 @@ def download_data(url, data_dir, override):
                 if temp not in urls:
                     urls.append(temp)
                     temp_path = path_append(file_path, h, to_str=True)
-                    print(temp + ' is saved as ' + temp_path)
+                    logger.info(temp + ' is saved as ' + temp_path)
                     # 下载
-                    urlretrieve(temp, temp_path)
+                    urlretrieve(temp, temp_path, reporthook=reporthook4urlretrieve)
+                    print()
                     # 解压
                     decompress(temp_path)
                     if override:
                         os.remove(temp_path)
-                        print(temp_path + ' is deleted.')
+                        logger.info(temp_path + ' is deleted.')
     else:
         file_path = path_append(data_dir, url.split('/')[-1], to_str=True)
-        print(url + ' is saved as ' + file_path)
-        urlretrieve(url, file_path)
+        logger.info(url + ' is saved as ' + file_path)
+        urlretrieve(url, file_path, reporthook=reporthook4urlretrieve)
+        print()
         decompress(file_path)
         if override:
             os.remove(file_path)
-            print(file_path + ' is deleted.')
+            logger.info(file_path + ' is deleted.')
 
 
 def get_data(dataset, data_dir=DEFAULT_DATADIR, override=False):
+    """
+
+    Parameters
+    ----------
+    dataset: str
+        数据集名
+    data_dir: str
+        数据存储目录
+    override: bool
+        是否覆盖已存在的文件
+    Returns
+    -------
+
+    """
     try:
         return download_data(url_dict[dataset], data_dir, override)
     except FileExistsError:
@@ -110,6 +129,5 @@ def list_resources():
 
 
 if __name__ == '__main__':
-    get_dataset_name()
     list_resources()
     get_data("assistment-2009-2010-skill")

@@ -2,8 +2,9 @@
 # create by tongshiwei on 2019-8-16
 import tarfile
 import zipfile
-
 import rarfile
+
+from longling import flush_print
 
 
 def decompress(file):
@@ -45,3 +46,25 @@ def un_tar(file):
     uz_path = get_path(file)
     print(file + " is untar to " + uz_path)
     tar_file.extractall(path=uz_path)
+
+
+def reporthook4urlretrieve(blocknum, bs, size):
+    """
+
+    Parameters
+    ----------
+    blocknum:
+        已经下载的数据块
+    bs:
+        数据块的大小
+    size:
+        远程文件的大小
+
+    Returns
+    -------
+
+    """
+    per = 100.0 * (blocknum * bs) / size
+    if per > 100:
+        per = 100
+    flush_print('Downloading %.2f%% : %d | %d' % (per, blocknum * bs, size))
