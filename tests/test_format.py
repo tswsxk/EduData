@@ -1,7 +1,7 @@
 # coding: utf-8
 # create by tongshiwei on 2019-8-14
 
-from EduData.Task.kt_data import tl2json, json2tl
+from EduData.Task.KnowledgeTracing.format import tl2json, json2tl
 
 
 def test_json2tl(tmp_path):
