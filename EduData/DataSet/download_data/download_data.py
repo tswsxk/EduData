@@ -8,6 +8,7 @@ from urllib.request import urlretrieve
 import requests
 from bs4 import BeautifulSoup
 from longling import config_logging, LogLevel, path_append
+
 # from longling.spider import download_data
 
 try:
@@ -105,7 +106,6 @@ def download_data(url, data_dir, override):
 
 def get_data(dataset, data_dir=DEFAULT_DATADIR, override=False):
     """
-
     Parameters
     ----------
     dataset: str
