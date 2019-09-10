@@ -16,12 +16,18 @@ setup(
         'test': test_deps,
     },
     install_requires=[
-        'mxnet',
         'tqdm',
         'networkx',
         'longling>=1.1.0',
         'requests',
         'bs4',
         'rarfile',
-    ]  # And any other dependencies foo needs
+        'pandas',
+        'fire',
+    ],  # And any other dependencies foo needs
+    entry_points={
+        "console_scripts": [
+            "edudata = EduData.main:__main__",
+        ],
+    },
 )

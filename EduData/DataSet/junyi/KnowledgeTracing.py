@@ -7,7 +7,7 @@ import json
 from longling import wf_open
 from tqdm import tqdm
 
-from EduData import train_valid_test
+from EduData.Tools import train_valid_test
 
 
 def extract_students_log(source, target, ku_dict):
@@ -42,6 +42,11 @@ def extract_students_log(source, target, ku_dict):
                 exercises.sort(key=lambda x: x[0])
                 exercise_response = [(exercise[1], exercise[2]) for exercise in exercises]
                 print(json.dumps(exercise_response), file=wf)
+
+
+def select_n_most_frequent_students(source, target, n=1000):
+
+    pass
 
 
 if __name__ == '__main__':
