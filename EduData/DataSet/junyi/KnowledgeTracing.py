@@ -39,7 +39,7 @@ def _read(source, ku_dict):
 
 def _write(students, target):
     with wf_open(target) as wf:
-        for student_id, sessions in tqdm(students.items(), "writing"):
+        for student_id, sessions in tqdm(students.items(), "writing -> %s" % target):
             for session_id, exercises in sessions.items():
                 exercises.sort(key=lambda x: x[0])
                 exercise_response = [(exercise[1], exercise[2]) for exercise in exercises]
@@ -58,10 +58,11 @@ def _frequency(students):
     return sorted(frequency.items(), key=lambda x: x[1], reverse=True)
 
 
-def get_n_most_frequent_students(students, n, frequency=None):
+def get_n_most_frequent_students(students, n=None, frequency=None):
     frequency = _frequency(students) if frequency is None else frequency
+    __frequency = frequency if n is None else frequency[:n]
     _students = {}
-    for _id, _ in frequency[:n]:
+    for _id, _ in __frequency:
         _students[_id] = students[_id]
     return _students
 
@@ -84,8 +85,15 @@ if __name__ == '__main__':
         student_log_raw_file,
         root + "data/junyi/student_log_kt_",
         ku_dict_file,
-        [100, 200, 300]
+        [None]
     )
+
+    # select_n_most_frequent_students(
+    #     student_log_raw_file,
+    #     root + "data/junyi/student_log_kt_",
+    #     ku_dict_file,
+    #     [100, 200, 300]
+    # )
     # [500, 1000, 2000]
 
     # extract_students_log(student_log_raw_file, student_log_file, ku_dict_file)
