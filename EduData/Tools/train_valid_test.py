@@ -1,10 +1,10 @@
 # coding: utf-8
 # create by tongshiwei on 2019-7-5
 
-__all__ = ["train_valid_test"]
+__all__ = ["train_valid_test", "KFold"]
 
 import io
-from longling.ML.toolkit.dataset.splitter import train_valid_test
+from longling.ML.toolkit.dataset import train_valid_test
 import random
 import math
 from tqdm import tqdm
