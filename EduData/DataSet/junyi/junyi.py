@@ -87,18 +87,17 @@ def extract_similarity(source, target, ku_dict):
 
 
 if __name__ == '__main__':
-    root = "../../"
-    raw_file = root + "raw_data/junyi/junyi_Exercise_table.csv"
+    root = "../../../"
+    raw_file = root + "data/junyi/junyi_Exercise_table.csv"
     ku_dict_file = root + "data/junyi/graph_vertex.json"
     prerequisite_file = root + "data/junyi/prerequisite.json"
     similarity_raw_files = [
-        root + "raw_data/junyi/relationship_annotation_{}.csv".format(name) for name in ["testing", "training"]
+        root + "data/junyi/relationship_annotation_{}.csv".format(name) for name in ["testing", "training"]
     ]
     similarity_raw_file = root + "raw_data/junyi/relationship_annotation.csv"
     similarity_file = root + "data/junyi/similarity.json"
 
     # merge_relationship_annotation(similarity_raw_files, similarity_raw_file)
-
-    # build_ku_dict(raw_file, ku_dict_file)
+    build_ku_dict(raw_file, ku_dict_file)
     extract_prerequisite(raw_file, prerequisite_file, ku_dict_file)
     # extract_similarity(similarity_raw_file, similarity_file, ku_dict_file)

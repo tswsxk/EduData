@@ -5,12 +5,11 @@ import csv
 import json
 
 from longling import wf_open
+from longling.lib.candylib import as_list
 from tqdm import tqdm
 
-from EduData.Tools import train_valid_test
 
-
-def extract_students_log(source, target, ku_dict):
+def _read(source, ku_dict):
     """require big memory to run this function"""
 
     outcome = {
@@ -35,39 +34,74 @@ def extract_students_log(source, target, ku_dict):
                 students[student][session] = []
 
             students[student][session].append([int(timestamp), exercise, correct])
+    return students
 
+
+def _write(students, target):
     with wf_open(target) as wf:
-        for student_id, sessions in tqdm(students.items(), "sorting"):
+        for student_id, sessions in tqdm(students.items(), "writing"):
             for session_id, exercises in sessions.items():
                 exercises.sort(key=lambda x: x[0])
                 exercise_response = [(exercise[1], exercise[2]) for exercise in exercises]
                 print(json.dumps(exercise_response), file=wf)
 
 
-def select_n_most_frequent_students(source, target, n=1000):
+def extract_students_log(source, target, ku_dict):
+    students = _read(source, ku_dict)
+    _write(students, target)
 
-    pass
+
+def _frequency(students):
+    frequency = {}
+    for student_id, sessions in tqdm(students.items(), "calculating frequency"):
+        frequency[student_id] = sum([len(session) for session in sessions])
+    return sorted(frequency.items(), key=lambda x: x[1], reverse=True)
+
+
+def get_n_most_frequent_students(students, n, frequency=None):
+    frequency = _frequency(students) if frequency is None else frequency
+    _students = {}
+    for _id, _ in frequency[:n]:
+        _students[_id] = students[_id]
+    return _students
+
+
+def select_n_most_frequent_students(source, target_prefix, ku_dict, n):
+    n_list = as_list(n)
+    students = _read(source, ku_dict)
+    frequency = _frequency(students)
+    for _n in n_list:
+        _write(get_n_most_frequent_students(students, _n, frequency), target_prefix + "%s" % _n)
 
 
 if __name__ == '__main__':
-    root = "../../"
-    student_log_raw_file = root + "raw_data/junyi/junyi_ProblemLog_for_PSLC.txt"
-    student_log_file = root + "data/junyi/student_log_kt.json"
+    root = "../../../"
+    student_log_raw_file = root + "data/junyi/junyi_ProblemLog_for_PSLC.txt"
+    # student_log_file = root + "data/junyi/student_log_kt.json"
     ku_dict_file = root + "data/junyi/graph_vertex.json"
+
+    select_n_most_frequent_students(
+        student_log_raw_file,
+        root + "data/junyi/student_log_kt_",
+        ku_dict_file,
+        [100, 200, 300]
+    )
+    # [500, 1000, 2000]
+
     # extract_students_log(student_log_raw_file, student_log_file, ku_dict_file)
 
-    student_log_file_small = student_log_file + ".small"
-
-    with open(student_log_file) as f, wf_open(student_log_file_small) as wf:
-        for i, line in tqdm(enumerate(f)):
-            if i > 50000:
-                break
-            print(line, end="", file=wf)
-
-    print(train_valid_test(
-        student_log_file_small,
-        valid_ratio=0.,
-        test_ratio=0.2,
-        root_dir=root + "data/junyi/",
-        silent=False,
-    ))
+    # student_log_file_small = student_log_file + ".small"
+    #
+    # with open(student_log_file) as f, wf_open(student_log_file_small) as wf:
+    #     for i, line in tqdm(enumerate(f)):
+    #         if i > 50000:
+    #             break
+    #         print(line, end="", file=wf)
+    #
+    # print(train_valid_test(
+    #     student_log_file_small,
+    #     valid_ratio=0.,
+    #     test_ratio=0.2,
+    #     root_dir=root + "data/junyi/",
+    #     silent=False,
+    # ))
