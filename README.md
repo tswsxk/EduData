@@ -5,11 +5,17 @@ Convenient interface for downloading and preprocessing dataset in education
 
 ## Installation
 ```bash
-python setup.py install
+pip install -e .
 ```
 
 ## DataSet
 
 ```bash
 
+```
+
+## Tools
+
+```bash
+edudata kt_stat $Dataset
 ```

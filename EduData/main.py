@@ -8,5 +8,10 @@ from EduData.Task.KnowledgeTracing.format import tl2json, json2tl
 from EduData.Task.KnowledgeTracing.statistics import analysis_records as kt_stat
 from EduData.Tools.train_valid_test import train_valid_test, KFold as kfold
 
-if __name__ == '__main__':
+
+def cli():
     fire.Fire()
+
+
+if __name__ == '__main__':
+    cli()
