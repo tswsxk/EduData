@@ -111,7 +111,7 @@ In order to better verify the effectiveness of model,
 the dataset is usually divided into `train/valid/test` or using `kfold` method.
 
 ```shell
-edudata longling train_valid_test $filename1 $filename2 -- --train_ratio 0.8 --valid_ratio 0.1 --test_ratio 0.1
-longling kfold $filename1 $filename2 -- --n_splits 5
+edudata train_valid_test $filename1 $filename2 -- --train_ratio 0.8 --valid_ratio 0.1 --test_ratio 0.1
+edudata kfold $filename1 $filename2 -- --n_splits 5
 ```
 Refer to [longling](https://longling.readthedocs.io/zh/latest/#dataset) for more tools and detailed information.
