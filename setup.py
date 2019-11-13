@@ -27,7 +27,7 @@ setup(
     ],  # And any other dependencies foo needs
     entry_points={
         "console_scripts": [
-            "edudata = EduData.main:__main__",
+            "edudata = EduData.main:cli",
         ],
     },
 )

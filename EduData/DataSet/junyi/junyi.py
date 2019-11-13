@@ -86,19 +86,38 @@ def extract_similarity(source, target, ku_dict):
         json.dump(similarity, wf, indent=2)
 
 
+def extract_difficulty(source, target, ku_dict):
+    """
+    In target: (A, B, v) means A is similar with B in v degree.
+    If v is small, A and B should be considered as not similar.
+    """
+    difficulty = []
+    with codecs.open(source, encoding="utf-8") as f, open(ku_dict) as kf, wf_open(target) as wf:
+        f.readline()
+        ku_dict = json.load(kf)
+        for line in csv.reader(f):
+            difficulty.append((ku_dict[line[0]], ku_dict[line[1]], float(line[4])))
+
+        logger.info("edges: %s" % len(difficulty))
+
+        logger.info(pandas.Series([sim[-1] for sim in difficulty]).describe())
+        json.dump(difficulty, wf, indent=2)
+
+
 if __name__ == '__main__':
-    root = "../../"
-    raw_file = root + "raw_data/junyi/junyi_Exercise_table.csv"
+    root = "../../../"
+    raw_file = root + "data/junyi/junyi_Exercise_table.csv"
     ku_dict_file = root + "data/junyi/graph_vertex.json"
     prerequisite_file = root + "data/junyi/prerequisite.json"
     similarity_raw_files = [
-        root + "raw_data/junyi/relationship_annotation_{}.csv".format(name) for name in ["testing", "training"]
+        root + "data/junyi/relationship_annotation_{}.csv".format(name) for name in ["testing", "training"]
     ]
     similarity_raw_file = root + "raw_data/junyi/relationship_annotation.csv"
     similarity_file = root + "data/junyi/similarity.json"
+    difficulty_file = root + "data/junyi/difficulty.json"
 
     # merge_relationship_annotation(similarity_raw_files, similarity_raw_file)
-
     # build_ku_dict(raw_file, ku_dict_file)
-    extract_prerequisite(raw_file, prerequisite_file, ku_dict_file)
-    # extract_similarity(similarity_raw_file, similarity_file, ku_dict_file)
+    # extract_prerequisite(raw_file, prerequisite_file, ku_dict_file)
+    extract_similarity(similarity_raw_file, similarity_file, ku_dict_file)
+    # extract_difficulty(similarity_raw_file, difficulty_file, ku_dict_file)
