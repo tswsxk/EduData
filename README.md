@@ -63,6 +63,11 @@ In Knowledge Tracing task, there is a popular format (we named it `triple line (
 1,1,1,0,0
 ```
 which can be found in [Deep Knowledge Tracing](https://github.com/chrispiech/DeepKnowledgeTracing/tree/master/data/assistments).
+In this format, three lines are composed of an interaction sequence.
+The first line indicates the length of the interaction sequence, 
+and the second line represents the exercise id followed by the third line, 
+where each elements stands for correct answer (i.e., 1) or wrong answer (i.e., 0) 
+
 
 In order to deal with the issue that some special symbols are hard to be stored in the mentioned-above format,
 we offer another one format, named `json sequence` to represent the interaction sequence records:
