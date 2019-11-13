@@ -45,6 +45,15 @@ Before downloading dataset, first check the available dataset:
 ```shell
 edudata ls
 ```
+and get:
+```text
+assistment-2009-2010-skill
+assistment-2012-2013-non-skill
+assistment-2015
+junyi
+KDD-CUP-2010
+slepemapy.cz
+```
 
 Download the dataset by specifying the name of dataset:
 ```shell
