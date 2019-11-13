@@ -56,11 +56,11 @@ edudata download assistment-2009-2010-skill
 ##### Knowledge Tracing
 
 ###### Format converter
-In Knowledge Tracing task, there is a popular format (we named it ``) to represent the interaction sequence records:
+In Knowledge Tracing task, there is a popular format (we named it `triple line (tl)` format) to represent the interaction sequence records:
 ```text
-15
-1,1,1,1,7,7,9,10,10,10,10,11,11,45,54
-0,1,1,1,1,1,0,0,1,1,1,1,1,0,0
+5
+419,419,419,665,665
+1,1,1,0,0
 ```
 which can be found in [Deep Knowledge Tracing](https://github.com/chrispiech/DeepKnowledgeTracing/tree/master/data/assistments).
 
