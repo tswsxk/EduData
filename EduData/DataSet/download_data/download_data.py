@@ -2,6 +2,7 @@
 # create by tongshiwei on 2019/7/2
 
 __all__ = ["url_dict", "get_data", "list_resources"]
+
 import os
 from urllib.request import urlretrieve
 
@@ -9,11 +10,9 @@ import requests
 from bs4 import BeautifulSoup
 from longling import config_logging, LogLevel, path_append
 
-# from longling.spider import download_data
-
 try:
     from .utils import decompress, reporthook4urlretrieve
-except (SystemError, ModuleNotFoundError):
+except (SystemError, ModuleNotFoundError):  # pragma: no cover
     from utils import decompress, reporthook4urlretrieve
 
 DEFAULT_DATADIR = path_append("./", "", to_str=True)
@@ -42,7 +41,7 @@ url_dict = {
 }
 
 
-def get_dataset_name():
+def get_dataset_name():  # pragma: no cover
     urls = []
     for i in url_dict.values():
         if i not in urls:
@@ -70,7 +69,7 @@ def get_dataset_name():
 def download_data(url, data_dir, override):
     urls = []
     os.makedirs(data_dir, exist_ok=True)
-    if url.endswith('/'):
+    if url.endswith('/'):  # pragma: no cover
         # 以/结尾是文件夹，其余是文件
         file_path = path_append(data_dir, url.split('/')[-2], to_str=True)
         os.makedirs(file_path, exist_ok=True)
@@ -124,7 +123,7 @@ def get_data(dataset, data_dir=DEFAULT_DATADIR, override=False):
     """
     try:
         return download_data(url_dict[dataset], data_dir, override)
-    except FileExistsError:
+    except FileExistsError:  # pragma: no cover
         return path_append(data_dir, url_dict[dataset].split('/')[-1], to_str=True)
 
 
