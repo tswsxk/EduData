@@ -34,7 +34,11 @@ url_dict = {
     "KDD-CUP-2010":
         "http://base.ustc.edu.cn/data/KDD_Cup_2010/",
     "slepemapy.cz":
-        "http://base.ustc.edu.cn/data/slepemapy.cz/"
+        "http://base.ustc.edu.cn/data/slepemapy.cz/",
+    "synthetic":
+        "http://base.ustc.edu.cn/data/synthetic/",
+    "toy":
+        "http://base.ustc.edu.cn/data/toy.csv",
 }
 
 
