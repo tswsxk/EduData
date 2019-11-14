@@ -39,7 +39,7 @@ url_dict = {
     "toy":
         "http://base.ustc.edu.cn/data/toy.csv",
     "ktbs":
-        "http://base.ustc.edu.cn/data/ktbs",
+        "http://base.ustc.edu.cn/data/ktbs/",
 }
 
 
