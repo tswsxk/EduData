@@ -38,6 +38,8 @@ url_dict = {
         "http://base.ustc.edu.cn/data/synthetic/",
     "toy":
         "http://base.ustc.edu.cn/data/toy.csv",
+    "ktbs":
+        "http://base.ustc.edu.cn/data/ktbs",
 }
 
 
