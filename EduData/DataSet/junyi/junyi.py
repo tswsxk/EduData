@@ -1,13 +1,18 @@
 # coding: utf-8
 # create by tongshiwei on 2019/7/2
 
+"""
+This script is used to build the map dict (ku_name -> idx) extract some relations from the original junyi dataset.
+"""
+__all__ = ["build_knowledge_graph"]
+
 import codecs
 import csv
 import json
 
 import networkx as nx
 import pandas
-from longling import wf_open, config_logging
+from longling import wf_open, config_logging, path_append
 from tqdm import tqdm
 
 logger = config_logging(logger="junyi", console_log_level="info")
@@ -66,6 +71,7 @@ def merge_relationship_annotation(sources, target):
             f.readline()
             for line in f:
                 wf.write(line)
+    return target
 
 
 def extract_similarity(source, target, ku_dict):
@@ -104,20 +110,31 @@ def extract_difficulty(source, target, ku_dict):
         json.dump(difficulty, wf, indent=2)
 
 
-if __name__ == '__main__':
-    root = "../../../"
-    raw_file = root + "data/junyi/junyi_Exercise_table.csv"
-    ku_dict_file = root + "data/junyi/graph_vertex.json"
-    prerequisite_file = root + "data/junyi/prerequisite.json"
-    similarity_raw_files = [
-        root + "data/junyi/relationship_annotation_{}.csv".format(name) for name in ["testing", "training"]
-    ]
-    similarity_raw_file = root + "raw_data/junyi/relationship_annotation.csv"
-    similarity_file = root + "data/junyi/similarity.json"
-    difficulty_file = root + "data/junyi/difficulty.json"
+def build_knowledge_graph(src_root: str, tar_root: (str, None) = None,
+                          ku_dict_path: str = None,
+                          prerequisite_path: (str, None) = None,
+                          similarity_path: (str, None) = None,
+                          difficulty_path: (str, None) = None):
+    tar_root = tar_root if tar_root is not None else src_root
+    exercise_src = path_append(src_root, "junyi_Exercise_table.csv")
 
-    # merge_relationship_annotation(similarity_raw_files, similarity_raw_file)
-    # build_ku_dict(raw_file, ku_dict_file)
-    # extract_prerequisite(raw_file, prerequisite_file, ku_dict_file)
-    extract_similarity(similarity_raw_file, similarity_file, ku_dict_file)
-    # extract_difficulty(similarity_raw_file, difficulty_file, ku_dict_file)
+    assert ku_dict_path is not None
+
+    relation_src = merge_relationship_annotation(
+        [path_append(src_root, "relationship_annotation_{}.csv".format(name)) for name in ["testing", "training"]],
+        path_append(src_root, "relationship_annotation.csv")
+    )
+    ku_dict_path = path_append(tar_root, ku_dict_path)
+    build_ku_dict(exercise_src, ku_dict_path)
+
+    if prerequisite_path is not None:
+        prerequisite_path = path_append(tar_root, prerequisite_path)
+        extract_prerequisite(exercise_src, prerequisite_path, ku_dict_path)
+
+    if similarity_path is not None:
+        similarity_path = path_append(tar_root, "similarity.json")
+        extract_similarity(relation_src, similarity_path, ku_dict_path)
+
+    if difficulty_path is not None:
+        difficulty_path = path_append(tar_root, "difficulty.json")
+        extract_difficulty(relation_src, difficulty_path, ku_dict_path)
