@@ -1,6 +1,12 @@
 # coding: utf-8
 # create by tongshiwei on 2019-7-5
 
+"""
+This script is used to convert the original junyi dataset into json sequence, which can be applied in kt task.
+"""
+
+__all__ = ["select_n_most_frequent_students"]
+
 import csv
 import json
 
@@ -9,8 +15,15 @@ from longling.lib.candylib import as_list
 from tqdm import tqdm
 
 
-def _read(source, ku_dict):
-    """require big memory to run this function"""
+def _read(source: str, ku_dict: str) -> dict:
+    """
+    Read the learners' interaction records and classify them by user id and session id.
+    In the same time, the exercise name will be converted to id.
+
+    Notes
+    -----
+    Require big memory to run this function.
+    """
 
     outcome = {
         "INCORRECT": 0,
@@ -26,8 +39,8 @@ def _read(source, ku_dict):
     with open(source) as f:
         f.readline()
         for line in tqdm(csv.reader(f, delimiter='\t'), "reading data"):
-            student, session, exercise, correct, timestamp = line[0], line[1], ku_dict[line[-5]], \
-                                                             outcome[line[10]], line[8]
+            student, session, exercise = line[0], line[1], ku_dict[line[-5]],
+            correct, timestamp = outcome[line[10]], line[8]
             if student not in students:
                 students[student] = {}
             if session not in students[student]:
@@ -58,7 +71,7 @@ def _frequency(students):
     return sorted(frequency.items(), key=lambda x: x[1], reverse=True)
 
 
-def get_n_most_frequent_students(students, n=None, frequency=None):
+def get_n_most_frequent_students(students, n=None, frequency: list = None):
     frequency = _frequency(students) if frequency is None else frequency
     __frequency = frequency if n is None else frequency[:n]
     _students = {}
@@ -67,7 +80,8 @@ def get_n_most_frequent_students(students, n=None, frequency=None):
     return _students
 
 
-def select_n_most_frequent_students(source, target_prefix, ku_dict, n):
+def select_n_most_frequent_students(source, target_prefix, ku_dict, n: (int, list)):
+    """None in n means select all students"""
     n_list = as_list(n)
     students = _read(source, ku_dict)
     frequency = _frequency(students)
