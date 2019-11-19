@@ -36,4 +36,7 @@ setup(
             "edudata = EduData.main:cli",
         ],
     },
+    classifier=[
+        "Programming Language :: Python :: 3.6, 3.7, 3.8",
+    ]
 )
