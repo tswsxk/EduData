@@ -28,6 +28,7 @@ setup(
         'rarfile',
         'pandas',
         'fire',
+        'lxml',
     ],  # And any other dependencies foo needs
     entry_points={
         "console_scripts": [
