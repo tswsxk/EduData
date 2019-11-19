@@ -75,10 +75,10 @@ def get_n_most_frequent_students(students, n=None, frequency: list = None):
     return _students
 
 
-def select_n_most_frequent_students(source, target_prefix, ku_dict, n: (int, list)):
+def select_n_most_frequent_students(source, target_prefix, ku_dict_path, n: (int, list)):
     """None in n means select all students"""
     n_list = as_list(n)
-    students = _read(source, ku_dict)
+    students = _read(source, ku_dict_path)
     frequency = _frequency(students)
     for _n in n_list:
         _write(get_n_most_frequent_students(students, _n, frequency), target_prefix + "%s" % _n)
