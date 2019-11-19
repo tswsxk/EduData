@@ -7,7 +7,7 @@ import rarfile
 from longling import flush_print
 
 
-def decompress(file):
+def decompress(file):  # pragma: no cover
     for z in [".tar.gz", ".tar.bz2", ".tar.bz", ".tar.tgz", ".tar", ".tgz", ".zip", ".rar"]:
         if file.endswith(z):
             if z == ".zip":
@@ -18,14 +18,14 @@ def decompress(file):
                 un_tar(file)
 
 
-def get_path(file):
+def get_path(file):  # pragma: no cover
     #  返回解压缩后的文件名
     for i in [".tar.gz", ".tar.bz2", ".tar.bz", ".tar.tgz", ".tar", ".tgz", ".zip", ".rar"]:
         file = file.replace(i, "")
     return file
 
 
-def un_zip(file):
+def un_zip(file):  # pragma: no cover
     zip_file = zipfile.ZipFile(file)
     uz_path = get_path(file)
     print(file + " is unzip to " + uz_path)
@@ -34,14 +34,14 @@ def un_zip(file):
     zip_file.close()
 
 
-def un_rar(file):
+def un_rar(file):  # pragma: no cover
     rar_file = rarfile.RarFile(file)
     uz_path = get_path(file)
     print(file + " is unrar to " + uz_path)
     rar_file.extractall(uz_path)
 
 
-def un_tar(file):
+def un_tar(file):  # pragma: no cover
     tar_file = tarfile.open(file)
     uz_path = get_path(file)
     print(file + " is untar to " + uz_path)

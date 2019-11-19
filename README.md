@@ -15,7 +15,11 @@ The dataset includes:
 
 * [synthetic](https://github.com/chrispiech/DeepKnowledgeTracing/tree/master/data/synthetic)
 
-Your can also visit our datashop [BaseData](http://base.ustc.edu.cn/data/) to get those mentioned-above (most of them) dataset. 
+Your can also visit our datashop [BaseData](http://base.ustc.edu.cn/data/) to get those mentioned-above (most of them) dataset.
+
+Except those mentioned-above dataset, we also provide some benchmark dataset for some specified task, which is listed as follows:
+
+* [knowledge tracing benchmark dataset](http://base.ustc.edu.cn/data/ktbd/)
 
 ## Tutorial
 
@@ -45,10 +49,24 @@ Before downloading dataset, first check the available dataset:
 ```shell
 edudata ls
 ```
+and get:
+```text
+assistment-2009-2010-skill
+assistment-2012-2013-non-skill
+assistment-2015
+junyi
+KDD-CUP-2010
+slepemapy.cz
+```
 
 Download the dataset by specifying the name of dataset:
 ```shell
 edudata download assistment-2009-2010-skill
+```
+
+In order to change the storing directory, use the following order:
+```shell
+edudata download assistment-2009-2010-skill $dir
 ```
 
 #### Task Specified Tools
@@ -76,7 +94,8 @@ we offer another one format, named `json sequence` to represent the interaction 
 ```
 
 Each item in the sequence represent one interaction. The first element of the item is the exercise 
-(some works call it knowledge unit or knowledge item) id 
+id (in some works, the exercise id is not one-to-one mapped to one knowledge unit(ku)/concept, 
+but in junyi, one exercise contains one ku) 
 and the second one indicates whether the learner correctly answer the exercise, 0 for wrongly while 1 for correctly  
 One line, one `json` record, which is corresponded to a learner's interaction sequence.
 
@@ -93,7 +112,18 @@ The cli tools to quickly convert the "raw" data of the dataset into "mature" dat
 The "mature" data is in `json sequence` format 
 and can be modeled by [XKT](https://github.com/bigdata-ustc/XKT) and TKT(TBA)
 
-TBA
+###### junyi
+```
+# download junyi dataset to junyi/
+>>> edudata download junyi
+# build knolwedge graph
+>>> edudata dataset junyi kt extract_relations junyi/ junyi/data/
+# prepare dataset for knwoeldge tracing task, which is represented in json sequence
+>>> edudata dataset junyi kt build_json_sequence junyi/ junyi/data/ junyi/data/graph_vertex.json 1000
+# after preprocessing, a json sequence file, named student_log_kt_1000, can be found in junyi/data/
+# further preprocessing like spliting dataset into train and test can be performed
+>>> edudata train_valid_test junyi/data/student_log_kt_1000 -- --train_ratio 0.8 --valid_ratio 0.1 --test_ratio 0.1
+```  
 
 ###### Analysis Dataset
 This tool only supports the `json sequence` format. To check the following statical indexes of the dataset:
@@ -111,7 +141,7 @@ In order to better verify the effectiveness of model,
 the dataset is usually divided into `train/valid/test` or using `kfold` method.
 
 ```shell
-edudata longling train_valid_test $filename1 $filename2 -- --train_ratio 0.8 --valid_ratio 0.1 --test_ratio 0.1
-longling kfold $filename1 $filename2 -- --n_splits 5
+edudata train_valid_test $filename1 $filename2 -- --train_ratio 0.8 --valid_ratio 0.1 --test_ratio 0.1
+edudata kfold $filename1 $filename2 -- --n_splits 5
 ```
 Refer to [longling](https://longling.readthedocs.io/zh/latest/#dataset) for more tools and detailed information.

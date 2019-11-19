@@ -1,26 +1,18 @@
 # coding: utf-8
 # create by tongshiwei on 2019/7/2
 
-import time
-
-import pytest
-
-from EduData import get_data
-from EduData.DataSet.download_data import url_dict
+from EduData import list_resources
+from .conftest import get_data, test_url_dict
 
 
-def test_download(tmp_path):
-    for url in url_dict:
-        get_data(url, tmp_path, override=True)
-        time.sleep(1)
+def test_download(shared_data_dir):
+    try:
+        get_data("tests", shared_data_dir, url_dict=test_url_dict)
+        assert True
+    except Exception as e:
+        raise e
 
 
-if __name__ == '__main__':
-    from EduData.DataSet.download_data.utils import reporthook4urlretrieve
-    from urllib.request import urlretrieve
-
-    urlretrieve(
-        "http://base.ustc.edu.cn/data/ASSISTment/2015_100_skill_builders_main_problems.zip",
-        "../data/temp",
-        reporthook=reporthook4urlretrieve
-    )
+def test_list_resources():
+    list_resources()
+    assert True
