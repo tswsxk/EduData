@@ -7,7 +7,7 @@ from longling import path_append
 from EduData.DataSet.junyi import build_knowledge_graph, select_n_most_frequent_students
 
 
-def extract_relations(src_root="../raw_data/junyi/", tar_root="../data/junyi/data/"):
+def extract_relations(src_root: str = "../raw_data/junyi/", tar_root: str = "../data/junyi/data/"):
     build_knowledge_graph(
         src_root, tar_root,
         ku_dict_path="graph_vertex.json",
@@ -17,8 +17,8 @@ def extract_relations(src_root="../raw_data/junyi/", tar_root="../data/junyi/dat
     )
 
 
-def build_json_sequence(src_root="../raw_data/junyi/", tar_root="../data/junyi/data/",
-                        ku_dict_path="../data/junyi/data/graph_vertex.json", n=1000):
+def build_json_sequence(src_root: str = "../raw_data/junyi/", tar_root: str = "../data/junyi/data/",
+                        ku_dict_path: str = "../data/junyi/data/graph_vertex.json", n: int = 1000):
     select_n_most_frequent_students(
         path_append(src_root, "junyi_ProblemLog_for_PSLC.txt", to_str=True),
         path_append(tar_root, "student_log_kt_", to_str=True),
