@@ -15,6 +15,7 @@ setup(
     extras_require={
         'test': test_deps,
     },
+    python_requires='>=3.6',
     description='This project aims to '
                 'provide convenient interfaces for downloading and preprocessing dataset in education..'
                 'Refer to full documentation https://github.com/bigdata-ustc/EduData/blob/master/README.md'
