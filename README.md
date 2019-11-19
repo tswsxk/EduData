@@ -64,6 +64,11 @@ Download the dataset by specifying the name of dataset:
 edudata download assistment-2009-2010-skill
 ```
 
+In order to change the storing directory, use the following order:
+```shell
+edudata download assistment-2009-2010-skill $dir
+```
+
 #### Task Specified Tools
 
 ##### Knowledge Tracing
