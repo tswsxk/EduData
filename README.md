@@ -15,7 +15,11 @@ The dataset includes:
 
 * [synthetic](https://github.com/chrispiech/DeepKnowledgeTracing/tree/master/data/synthetic)
 
-Your can also visit our datashop [BaseData](http://base.ustc.edu.cn/data/) to get those mentioned-above (most of them) dataset. 
+Your can also visit our datashop [BaseData](http://base.ustc.edu.cn/data/) to get those mentioned-above (most of them) dataset.
+
+Except those mentioned-above dataset, we also provide some benchmark dataset for some specified task, which is listed as follows:
+
+* [knowledge tracing benchmark dataset](http://base.ustc.edu.cn/data/ktbd/)
 
 ## Tutorial
 
