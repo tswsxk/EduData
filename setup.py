@@ -16,7 +16,9 @@ setup(
         'test': test_deps,
     },
     description='This project aims to '
-                'provide convenient interfaces for downloading and preprocessing dataset in education..',
+                'provide convenient interfaces for downloading and preprocessing dataset in education..'
+                'Refer to full documentation https://github.com/bigdata-ustc/EduData/blob/master/README.md'
+                ' for detailed information',
     install_requires=[
         'tqdm',
         'networkx',
