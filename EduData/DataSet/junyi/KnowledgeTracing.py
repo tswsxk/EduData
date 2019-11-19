@@ -59,11 +59,6 @@ def _write(students, target):
                 print(json.dumps(exercise_response), file=wf)
 
 
-def extract_students_log(source, target, ku_dict):
-    students = _read(source, ku_dict)
-    _write(students, target)
-
-
 def _frequency(students):
     frequency = {}
     for student_id, sessions in tqdm(students.items(), "calculating frequency"):
@@ -87,43 +82,3 @@ def select_n_most_frequent_students(source, target_prefix, ku_dict, n: (int, lis
     frequency = _frequency(students)
     for _n in n_list:
         _write(get_n_most_frequent_students(students, _n, frequency), target_prefix + "%s" % _n)
-
-
-if __name__ == '__main__':
-    root = "../../../"
-    student_log_raw_file = root + "data/junyi/junyi_ProblemLog_for_PSLC.txt"
-    # student_log_file = root + "data/junyi/student_log_kt.json"
-    ku_dict_file = root + "data/junyi/graph_vertex.json"
-
-    select_n_most_frequent_students(
-        student_log_raw_file,
-        root + "data/junyi/student_log_kt_",
-        ku_dict_file,
-        [None]
-    )
-
-    # select_n_most_frequent_students(
-    #     student_log_raw_file,
-    #     root + "data/junyi/student_log_kt_",
-    #     ku_dict_file,
-    #     [100, 200, 300]
-    # )
-    # [500, 1000, 2000]
-
-    # extract_students_log(student_log_raw_file, student_log_file, ku_dict_file)
-
-    # student_log_file_small = student_log_file + ".small"
-    #
-    # with open(student_log_file) as f, wf_open(student_log_file_small) as wf:
-    #     for i, line in tqdm(enumerate(f)):
-    #         if i > 50000:
-    #             break
-    #         print(line, end="", file=wf)
-    #
-    # print(train_valid_test(
-    #     student_log_file_small,
-    #     valid_ratio=0.,
-    #     test_ratio=0.2,
-    #     root_dir=root + "data/junyi/",
-    #     silent=False,
-    # ))

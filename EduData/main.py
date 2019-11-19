@@ -9,7 +9,7 @@ from EduData.Task.KnowledgeTracing.statistics import analysis_records
 from longling.ML.toolkit.dataset import train_valid_test, kfold
 
 
-def cli():
+def cli():  # pragma: no cover
     fire.Fire(
         {
             "download": get_data,
@@ -21,7 +21,3 @@ def cli():
             "kfold": kfold,
         }
     )
-
-
-if __name__ == '__main__':
-    cli()

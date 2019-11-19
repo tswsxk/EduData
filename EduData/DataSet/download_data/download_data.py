@@ -67,19 +67,20 @@ def get_dataset_name():  # pragma: no cover
 
 
 def download_file(url, save_path, override):
+    if os.path.exists(save_path) and override:  # pragma: no cover
+        os.remove(save_path)
+        logger.info(save_path + ' will be overridden.')
+
     logger.info(url + ' is saved as ' + save_path)
     urlretrieve(url, save_path, reporthook=reporthook4urlretrieve)
     print()
     decompress(save_path)
-    if override:
-        os.remove(save_path)
-        logger.info(save_path + ' is deleted.')
 
 
 def download_data(url, data_dir, override, bloom_filter: set = None):
     bloom_filter = set() if bloom_filter is None else bloom_filter
 
-    if url in bloom_filter:
+    if url in bloom_filter:  # pragma: no cover
         return
 
     if url.endswith("/"):  # 以/结尾是文件夹，其余是文件
@@ -104,6 +105,8 @@ def download_data(url, data_dir, override, bloom_filter: set = None):
         save_path = path_append(data_dir, url.split('/')[-1], to_str=True)
         download_file(url, save_path, override)
         bloom_filter.add(url)
+
+    return data_dir
 
 
 def get_data(dataset, data_dir=DEFAULT_DATADIR, override=False, url_dict: dict = None):
