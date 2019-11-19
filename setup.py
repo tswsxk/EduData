@@ -15,6 +15,8 @@ setup(
     extras_require={
         'test': test_deps,
     },
+    description='This project aims to '
+                'provide convenient interfaces for downloading and preprocessing dataset in education..',
     install_requires=[
         'tqdm',
         'networkx',
