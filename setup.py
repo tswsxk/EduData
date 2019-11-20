@@ -11,16 +11,16 @@ test_deps = [
 
 setup(
     name='EduData',
-    version='0.0.2',
+    version='0.0.3',
     extras_require={
         'test': test_deps,
     },
     packages=find_packages(),
     python_requires='>=3.6',
+    long_description='Refer to full documentation https://github.com/bigdata-ustc/EduData/blob/master/README.md'
+                     ' for detailed information.',
     description='This project aims to '
-                'provide convenient interfaces for downloading and preprocessing dataset in education..'
-                'Refer to full documentation https://github.com/bigdata-ustc/EduData/blob/master/README.md'
-                ' for detailed information',
+                'provide convenient interfaces for downloading and preprocessing dataset in education.',
     install_requires=[
         'tqdm',
         'networkx',
