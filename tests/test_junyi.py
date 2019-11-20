@@ -2,7 +2,7 @@
 # 2019/11/14 @ tongshiwei
 
 from longling import path_append
-from script.junyi_kt import extract_relations, build_json_sequence
+from EduData.DataSet.junyi import extract_relations, build_json_sequence
 from EduData.Task.KnowledgeTracing.format import tl2json, json2tl
 from EduData.Task.KnowledgeTracing.statistics import analysis_records
 

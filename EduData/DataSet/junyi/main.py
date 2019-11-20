@@ -1,10 +1,12 @@
 # coding: utf-8
-# 2019/11/14 @ tongshiwei
+# 2019/11/20 @ tongshiwei
+
 
 __all__ = ["extract_relations", "build_json_sequence"]
 
 from longling import path_append
-from EduData.DataSet.junyi import build_knowledge_graph, select_n_most_frequent_students
+from .junyi import build_knowledge_graph
+from .KnowledgeTracing import select_n_most_frequent_students
 
 
 def extract_relations(src_root: str = "../raw_data/junyi/", tar_root: str = "../data/junyi/data/"):
