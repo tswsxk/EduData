@@ -11,7 +11,7 @@ test_deps = [
 
 setup(
     name='EduData',
-    version='0.0.3',
+    version='0.0.2',
     extras_require={
         'test': test_deps,
     },
@@ -38,6 +38,6 @@ setup(
         ],
     },
     classifier=[
-        "Programming Language :: Python :: 3.6, 3.7, 3.8",
+        "Programming Language :: Python :: 3",
     ]
 )
