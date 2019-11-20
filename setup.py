@@ -1,7 +1,7 @@
 # coding: utf-8
 # create by tongshiwei on 2019/6/25
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 test_deps = [
     'pytest>=4',
@@ -15,6 +15,7 @@ setup(
     extras_require={
         'test': test_deps,
     },
+    packages=find_packages(),
     python_requires='>=3.6',
     description='This project aims to '
                 'provide convenient interfaces for downloading and preprocessing dataset in education..'
