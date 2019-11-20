@@ -1,7 +1,7 @@
 # coding: utf-8
 # create by tongshiwei on 2019/6/25
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 test_deps = [
     'pytest>=4',
@@ -15,19 +15,29 @@ setup(
     extras_require={
         'test': test_deps,
     },
+    packages=find_packages(),
+    python_requires='>=3.6',
+    description='This project aims to '
+                'provide convenient interfaces for downloading and preprocessing dataset in education..'
+                'Refer to full documentation https://github.com/bigdata-ustc/EduData/blob/master/README.md'
+                ' for detailed information',
     install_requires=[
         'tqdm',
         'networkx',
-        'longling>=1.1.0',
+        'longling>=1.3.1',
         'requests',
         'bs4',
         'rarfile',
         'pandas',
         'fire',
+        'lxml',
     ],  # And any other dependencies foo needs
     entry_points={
         "console_scripts": [
             "edudata = EduData.main:cli",
         ],
     },
+    classifier=[
+        "Programming Language :: Python :: 3.6, 3.7, 3.8",
+    ]
 )

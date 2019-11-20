@@ -1,4 +1,9 @@
 # EduData
+[![PyPI](https://img.shields.io/pypi/v/EduData.svg)](https://pypi.python.org/pypi/EduData)
+[![Build Status](https://www.travis-ci.org/tswsxk/EduData.svg?branch=master)](https://www.travis-ci.org/tswsxk/EduData)
+[![Coverage Status](https://coveralls.io/repos/github/tswsxk/EduData/badge.svg?branch=master)](https://coveralls.io/github/tswsxk/EduData?branch=master)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/EduData.svg)](https://pypi.python.org/pypi/EduData)
+
 Convenient interface for downloading and preprocessing dataset in education.
 
 The dataset includes:
@@ -145,3 +150,7 @@ edudata train_valid_test $filename1 $filename2 -- --train_ratio 0.8 --valid_rati
 edudata kfold $filename1 $filename2 -- --n_splits 5
 ```
 Refer to [longling](https://longling.readthedocs.io/zh/latest/#dataset) for more tools and detailed information.
+
+## More works
+
+Refer to our [website](http://base.ustc.edu.cn/) and [github](https://github.com/bigdata-ustc) for our publications and more projects
