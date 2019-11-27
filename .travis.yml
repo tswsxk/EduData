@@ -14,4 +14,4 @@ install:
 
 script:
   - pytest
-  - coveralls
+  - COVERALLS_PARALLEL=true coveralls
