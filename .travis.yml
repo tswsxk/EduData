@@ -10,8 +10,8 @@ matrix:
   
 install:
   - pip install -e .[test]
-  - pip install coveralls
+  - pip install codecov
 
 script:
   - pytest
-  - coveralls
+  - codecov
