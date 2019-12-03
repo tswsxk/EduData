@@ -60,6 +60,8 @@ assistment-2015
 junyi
 KDD-CUP-2010
 slepemapy.cz
+synthetic
+ktbd
 ```
 
 Download the dataset by specifying the name of dataset:
