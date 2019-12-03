@@ -74,6 +74,8 @@ In order to change the storing directory, use the following order:
 edudata download assistment-2009-2010-skill $dir
 ```
 
+For detailed information of each dataset, refer to the [docs](docs)
+
 ## Task Specified Tools
 
 ### Knowledge Tracing
