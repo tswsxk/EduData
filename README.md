@@ -1,7 +1,7 @@
 # EduData
 [![PyPI](https://img.shields.io/pypi/v/EduData.svg)](https://pypi.python.org/pypi/EduData)
 [![Build Status](https://www.travis-ci.org/tswsxk/EduData.svg?branch=master)](https://www.travis-ci.org/tswsxk/EduData)
-[![Coverage Status](https://coveralls.io/repos/github/tswsxk/EduData/badge.svg?branch=master)](https://coveralls.io/github/tswsxk/EduData?branch=master)
+[![codecov](https://codecov.io/gh/tswsxk/EduData/branch/master/graph/badge.svg)](https://codecov.io/gh/tswsxk/EduData)
 
 Convenient interface for downloading and preprocessing dataset in education.
 
