@@ -114,8 +114,10 @@ One line, one `json` record, which is corresponded to a learner's interaction se
 
 We provide tools for converting two format:
 ```shell
-# convert tl sequence to json sequence
+# convert tl sequence to json sequence, by default, the exercise tag and answer will be converted into int type
 edudata tl2json $src $tar
+# convert tl sequence to json sequence without converting
+edudata tl2json $src $tar False
 # convert json sequence to tl sequence
 edudata json2tl $src $tar
 ```
