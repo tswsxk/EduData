@@ -64,6 +64,8 @@ KDD-CUP-2010
 slepemapy.cz
 synthetic
 ktbd
+ktbd-a0910
+ktbd-junyi
 math2015
 ```
 
