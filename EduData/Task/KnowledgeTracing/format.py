@@ -9,7 +9,7 @@ from tqdm import tqdm
 __all__ = ["tl2json", "json2tl"]
 
 
-def tl2json(src: str, tar: str):
+def tl2json(src: str, tar: str, to_int=False):
     """
     convert the dataset in `tl` sequence into `json` sequence
 
@@ -33,6 +33,9 @@ def tl2json(src: str, tar: str):
         for _ in tqdm(f):
             exercise_tags = f.readline().strip().strip(",").split(",")
             response_sequence = f.readline().strip().strip(",").split(",")
+            if to_int:
+                exercise_tags = list(map(int, exercise_tags))
+                response_sequence = list(map(int, response_sequence))
             responses = list(zip(exercise_tags, response_sequence))
             print(json.dumps(responses), file=wf)
 
