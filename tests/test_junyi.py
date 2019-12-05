@@ -25,7 +25,8 @@ def test_json2tl(shared_data_dir):
     tl_tar = path_append(shared_data_dir, "junyi", "data", "student_log_kt_1000.tl", to_str=True)
     json_tar = path_append(shared_data_dir, "junyi", "data", "student_log_kt_1000.json", to_str=True)
     json2tl(src, tl_tar)
-    tl2json(tl_tar, json_tar)
+    tl2json(tl_tar, json_tar, to_int=True)
+    tl2json(tl_tar, json_tar, to_int=False)
     assert True
 
 
