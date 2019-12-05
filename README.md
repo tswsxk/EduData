@@ -25,16 +25,14 @@ Except those mentioned-above dataset, we also provide some benchmark dataset for
 
 * [knowledge tracing benchmark dataset](http://base.ustc.edu.cn/data/ktbd/)
 
-## Tutorial
-
-### Installation
+## Installation
 Git and install by `pip`
 
 ```shell
 pip install -e .
 ```
 
-### CLI
+## CLI
 ```shell
 edudata $subcommand $parameters1 $parameters2
 ```
@@ -48,7 +46,8 @@ edudata $subcommand --help
 The cli tools is constructed based on [fire](https://github.com/google/python-fire). 
 Refer to the [documentation](https://github.com/google/python-fire/blob/master/docs/using-cli.md) for detailed usage.
 
-#### Download Dataset
+## Download Dataset
+
 Before downloading dataset, first check the available dataset:
 ```shell
 edudata ls
@@ -61,6 +60,8 @@ assistment-2015
 junyi
 KDD-CUP-2010
 slepemapy.cz
+synthetic
+ktbd
 ```
 
 Download the dataset by specifying the name of dataset:
@@ -73,11 +74,16 @@ In order to change the storing directory, use the following order:
 edudata download assistment-2009-2010-skill $dir
 ```
 
-#### Task Specified Tools
+For detailed information of each dataset, refer to the [docs](docs)
 
-##### Knowledge Tracing
+## Task Specified Tools
 
-###### Format converter
+### Knowledge Tracing
+
+---
+
+### Format converter
+
 In Knowledge Tracing task, there is a popular format (we named it `triple line (tl)` format) to represent the interaction sequence records:
 ```text
 5
@@ -111,12 +117,13 @@ edudata tl2json $src $tar
 edudata json2tl $src $tar
 ```
 
-###### Dataset Preprocess
+### Dataset Preprocess
 The cli tools to quickly convert the "raw" data of the dataset into "mature" data for knowledge tracing task. 
 The "mature" data is in `json sequence` format 
 and can be modeled by [XKT](https://github.com/bigdata-ustc/XKT) and TKT(TBA)
 
-###### junyi
+#### junyi
+
 ```
 # download junyi dataset to junyi/
 >>> edudata download junyi
@@ -129,7 +136,7 @@ and can be modeled by [XKT](https://github.com/bigdata-ustc/XKT) and TKT(TBA)
 >>> edudata train_valid_test junyi/data/student_log_kt_1000 -- --train_ratio 0.8 --valid_ratio 0.1 --test_ratio 0.1
 ```  
 
-###### Analysis Dataset
+### Analysis Dataset
 This tool only supports the `json sequence` format. To check the following statical indexes of the dataset:
 
 * knowledge units number
@@ -140,7 +147,7 @@ This tool only supports the `json sequence` format. To check the following stati
 edudata kt_stat $filename
 ```
 
-#### Evaluation
+### Evaluation
 In order to better verify the effectiveness of model, 
 the dataset is usually divided into `train/valid/test` or using `kfold` method.
 

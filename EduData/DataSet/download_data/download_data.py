@@ -38,6 +38,10 @@ URL_DICT = {
         "http://base.ustc.edu.cn/data/synthetic/",
     "ktbd":
         "http://base.ustc.edu.cn/data/ktbd/",
+    "ktbd-a0910":
+        "http://base.ustc.edu.cn/data/ktbd/assistment_2009_2010/",
+    "ktbd-junyi":
+        "http://base.ustc.edu.cn/data/ktbd/junyi/",
 }
 
 
