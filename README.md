@@ -34,6 +34,12 @@ Git and install by `pip`
 pip install -e .
 ```
 
+or install from `pypi`:
+
+```shell
+pip install EduData
+```
+
 ## CLI
 ```shell
 edudata $subcommand $parameters1 $parameters2
@@ -66,6 +72,7 @@ synthetic
 ktbd
 ktbd-a0910
 ktbd-junyi
+ktbd-synthetic
 math2015
 ```
 
