@@ -11,7 +11,7 @@ test_deps = [
 
 setup(
     name='EduData',
-    version='0.0.4',
+    version='0.0.5',
     extras_require={
         'test': test_deps,
     },
@@ -24,7 +24,7 @@ setup(
     install_requires=[
         'tqdm',
         'networkx',
-        'longling>=1.3.1',
+        'longling>=1.3.2',
         'requests',
         'bs4',
         'rarfile',

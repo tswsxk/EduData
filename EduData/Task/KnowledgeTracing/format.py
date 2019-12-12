@@ -9,7 +9,7 @@ from tqdm import tqdm
 __all__ = ["tl2json", "json2tl"]
 
 
-def tl2json(src: str, tar: str, to_int=False):
+def tl2json(src: str, tar: str, to_int=True):
     """
     convert the dataset in `tl` sequence into `json` sequence
 

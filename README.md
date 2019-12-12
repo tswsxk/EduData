@@ -64,6 +64,8 @@ KDD-CUP-2010
 slepemapy.cz
 synthetic
 ktbd
+ktbd-a0910
+ktbd-junyi
 math2015
 ```
 
@@ -114,8 +116,10 @@ One line, one `json` record, which is corresponded to a learner's interaction se
 
 We provide tools for converting two format:
 ```shell
-# convert tl sequence to json sequence
+# convert tl sequence to json sequence, by default, the exercise tag and answer will be converted into int type
 edudata tl2json $src $tar
+# convert tl sequence to json sequence without converting
+edudata tl2json $src $tar False
 # convert json sequence to tl sequence
 edudata json2tl $src $tar
 ```
@@ -155,8 +159,8 @@ In order to better verify the effectiveness of model,
 the dataset is usually divided into `train/valid/test` or using `kfold` method.
 
 ```shell
-edudata train_valid_test $filename1 $filename2 -- --train_ratio 0.8 --valid_ratio 0.1 --test_ratio 0.1
-edudata kfold $filename1 $filename2 -- --n_splits 5
+edudata train_valid_test $filename1 $filename2 --train_ratio 0.8 --valid_ratio 0.1 --test_ratio 0.1
+edudata kfold $filename1 $filename2 --n_splits 5
 ```
 Refer to [longling](https://longling.readthedocs.io/zh/latest/#dataset) for more tools and detailed information.
 

@@ -11,6 +11,8 @@ test_url_dict = {
         "http://base.ustc.edu.cn/data/tests/",
     "junyi":
         "http://base.ustc.edu.cn/data/tests/junyi/",
+    "synthetic":
+        "http://base.ustc.edu.cn/data/tests/synthetic",
 }
 
 get_data = functools.partial(get_data, url_dict=test_url_dict)
