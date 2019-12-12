@@ -66,6 +66,7 @@ synthetic
 ktbd
 ktbd-a0910
 ktbd-junyi
+ktbd-synthetic
 math2015
 ```
 
