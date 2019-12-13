@@ -8,6 +8,7 @@ from EduData.Task.KnowledgeTracing.format import tl2json, json2tl
 from EduData.Task.KnowledgeTracing.statistics import analysis_records
 from longling.ML.toolkit.dataset import train_valid_test, kfold
 from EduData.DataSet.junyi import extract_relations, build_json_sequence
+from EduData.Task.KnowledgeTracing.graph import dense_graph, transition_graph, correct_transition_graph
 
 
 def cli():  # pragma: no cover
@@ -27,6 +28,11 @@ def cli():  # pragma: no cover
                         "build_json_sequence": build_json_sequence,
                     }
                 }
+            },
+            "graph": {
+                "dense": dense_graph,
+                "trans": transition_graph,
+                "ctrans": correct_transition_graph,
             }
         }
     )
