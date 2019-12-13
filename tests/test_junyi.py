@@ -5,6 +5,7 @@ from longling import path_append
 from EduData.DataSet.junyi import extract_relations, build_json_sequence
 from EduData.Task.KnowledgeTracing.format import tl2json, json2tl
 from EduData.Task.KnowledgeTracing.statistics import analysis_records
+from EduData.Task.KnowledgeTracing.graph import dense_graph, transition_graph, correct_transition_graph
 
 
 def test_junyi(shared_data_dir):
@@ -25,8 +26,8 @@ def test_json2tl(shared_data_dir):
     tl_tar = path_append(shared_data_dir, "junyi", "data", "student_log_kt_1000.tl", to_str=True)
     json_tar = path_append(shared_data_dir, "junyi", "data", "student_log_kt_1000.json", to_str=True)
     json2tl(src, tl_tar)
-    tl2json(tl_tar, json_tar, to_int=True)
     tl2json(tl_tar, json_tar, to_int=False)
+    tl2json(tl_tar, json_tar, to_int=True)
     assert True
 
 
@@ -34,3 +35,11 @@ def test_analysis(shared_data_dir):
     src = path_append(shared_data_dir, "junyi", "data", "student_log_kt_1000", to_str=True)
     analysis_records(src)
     assert True
+
+
+def test_graph(tmpdir, shared_data_dir):
+    json_src = path_append(shared_data_dir, "junyi", "data", "student_log_kt_1000.json", to_str=True)
+
+    dense_graph(835, path_append(tmpdir, "dense_graph", to_str=True))
+    transition_graph(835, json_src, tar=path_append(tmpdir, "transition_graph", to_str=True))
+    correct_transition_graph(835, json_src, tar=path_append(tmpdir, "correct_transition_graph", to_str=True))
