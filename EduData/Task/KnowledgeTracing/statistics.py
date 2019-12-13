@@ -5,6 +5,7 @@ __all__ = ["analysis_records"]
 
 from tqdm import tqdm
 import json
+from longling import json_load
 
 
 def analysis_records(source):
@@ -30,20 +31,17 @@ def analysis_records(source):
 def analysis_edges(src, threshold=None):
     edge_num = 0
 
-    with open(src) as f:
-        for line in f:
-            if not line.strip():  # pragma: no cover
-                continue
-            data = json.loads(line)
-            if len(data) == 2:
+    graph_edges = json_load(src)
+    for edge in graph_edges:
+        if len(edge) == 2:
+            edge_num += 1
+        elif len(edge) >= 3:
+            if threshold is None:
                 edge_num += 1
-            elif len(data) >= 3:
-                if threshold is None:
-                    edge_num += 1
-                elif data[2] >= threshold:
-                    edge_num += 1
-            else:  # pragma: no cover
-                raise ValueError("each edge in src should have at least two element")
+            elif edge[2] >= threshold:
+                edge_num += 1
+        else:  # pragma: no cover
+            raise ValueError("each edge in src should have at least two element")
 
     print("in %s" % src)
     print("%s edges" % edge_num)
