@@ -44,6 +44,8 @@ URL_DICT = {
         "http://base.ustc.edu.cn/data/ktbd/junyi/",
     "ktbd-synthetic":
         "http://base.ustc.edu.cn/data/ktbd/synthetic/",
+    "ktbd-a0910c":
+        "http://base.ustc.edu.cn/data/ktbd/a0910c/",
     "math2015":
         "http://staff.ustc.edu.cn/~qiliuql/data/math2015.rar",
 }

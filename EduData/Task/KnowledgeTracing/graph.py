@@ -8,11 +8,15 @@ import numpy as np
 
 
 def dense_graph(ku_num, tar):
+    _graph = []
+
+    for i in range(ku_num):
+        for j in range(ku_num):
+            if i != j:
+                _graph.append([i, j])
+
     with wf_open(tar) as wf:
-        for i in range(ku_num):
-            for j in range(ku_num):
-                if i != j:
-                    print(json.dumps([i, j]), file=wf)
+        json.dump(_graph, wf, indent=2)
 
 
 def _count_to_probability(count_graph):
@@ -26,11 +30,15 @@ def _count_to_probability(count_graph):
 def _output_graph(graph, tar):
     ku_num = len(graph)
 
+    _graph = []
+
+    for i in range(ku_num):
+        for j in range(ku_num):
+            if i != j and graph[i][j] > 0:
+                _graph.append([i, j, graph[i][j]])
+
     with wf_open(tar) as wf:
-        for i in range(ku_num):
-            for j in range(ku_num):
-                if i != j and graph[i][j] > 0:
-                    print(json.dumps([i, j, graph[i][j]]), file=wf)
+        json.dump(_graph, wf, indent=2)
 
 
 def correct_transition_graph(ku_num, *src, tar):
