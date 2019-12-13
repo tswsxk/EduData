@@ -5,7 +5,6 @@ __all__ = ["analysis_records"]
 
 from tqdm import tqdm
 import json
-from longling import json_load
 
 
 def analysis_records(source):
@@ -31,7 +30,9 @@ def analysis_records(source):
 def analysis_edges(src, threshold=None):
     edge_num = 0
 
-    graph_edges = json_load(src)
+    with open(src) as f:
+        graph_edges = json.load(f)
+
     for edge in graph_edges:
         if len(edge) == 2:
             edge_num += 1

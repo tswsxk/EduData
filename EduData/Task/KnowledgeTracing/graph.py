@@ -6,12 +6,17 @@ from longling import wf_open
 from tqdm import tqdm
 import numpy as np
 
+
 def dense_graph(ku_num, tar):
+    _graph = []
+
+    for i in range(ku_num):
+        for j in range(ku_num):
+            if i != j:
+                _graph.append([i, j])
+
     with wf_open(tar) as wf:
-        for i in range(ku_num):
-            for j in range(ku_num):
-                if i != j:
-                    print(json.dumps([i, j]), file=wf)
+        json.dump(_graph, wf, indent=2)
 
 
 def _count_to_probability(count_graph):
@@ -30,7 +35,7 @@ def _output_graph(graph, tar):
     for i in range(ku_num):
         for j in range(ku_num):
             if i != j and graph[i][j] > 0:
-                _graph = [i, j, graph[i][j]]
+                _graph.append([i, j, graph[i][j]])
 
     with wf_open(tar) as wf:
         json.dump(_graph, wf, indent=2)
