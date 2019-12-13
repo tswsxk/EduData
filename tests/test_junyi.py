@@ -4,21 +4,19 @@
 from longling import path_append
 from EduData.DataSet.junyi import extract_relations, build_json_sequence
 from EduData.Task.KnowledgeTracing.format import tl2json, json2tl
-from EduData.Task.KnowledgeTracing.statistics import analysis_records
+from EduData.Task.KnowledgeTracing.statistics import analysis_records, analysis_edges
 from EduData.Task.KnowledgeTracing.graph import dense_graph, transition_graph, correct_transition_graph
 
 
 def test_junyi(shared_data_dir):
     src_root = path_append(shared_data_dir, "junyi", to_str=True)
     extract_relations(src_root, path_append(src_root, "data"))
-    assert True
 
 
 def test_junyi_kt(shared_data_dir):
     src_root = path_append(shared_data_dir, "junyi", to_str=True)
     ku_dict_path = path_append(shared_data_dir, "junyi", "data", "graph_vertex.json")
     build_json_sequence(src_root, path_append(src_root, "data", to_str=True), ku_dict_path)
-    assert True
 
 
 def test_json2tl(shared_data_dir):
@@ -28,18 +26,23 @@ def test_json2tl(shared_data_dir):
     json2tl(src, tl_tar)
     tl2json(tl_tar, json_tar, to_int=False)
     tl2json(tl_tar, json_tar, to_int=True)
-    assert True
+
+
+def test_graph(shared_data_dir):
+    json_src = path_append(shared_data_dir, "junyi", "data", "student_log_kt_1000.json", to_str=True)
+
+    dense_graph(835, path_append(shared_data_dir, "dense_graph", to_str=True))
+    transition_graph(835, json_src, tar=path_append(shared_data_dir, "transition_graph", to_str=True))
+    correct_transition_graph(835, json_src, tar=path_append(shared_data_dir, "correct_transition_graph", to_str=True))
 
 
 def test_analysis(shared_data_dir):
     src = path_append(shared_data_dir, "junyi", "data", "student_log_kt_1000", to_str=True)
     analysis_records(src)
-    assert True
 
+    graph_src = path_append(shared_data_dir, "dense_graph", to_str=True)
+    analysis_edges(graph_src)
 
-def test_graph(tmpdir, shared_data_dir):
-    json_src = path_append(shared_data_dir, "junyi", "data", "student_log_kt_1000.json", to_str=True)
-
-    dense_graph(835, path_append(tmpdir, "dense_graph", to_str=True))
-    transition_graph(835, json_src, tar=path_append(tmpdir, "transition_graph", to_str=True))
-    correct_transition_graph(835, json_src, tar=path_append(tmpdir, "correct_transition_graph", to_str=True))
+    graph_src = path_append(shared_data_dir, "transition_graph", to_str=True)
+    analysis_edges(graph_src, threshold=0.5)
+    analysis_edges(graph_src, threshold=None)
