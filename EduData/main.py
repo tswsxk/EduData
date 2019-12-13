@@ -5,9 +5,10 @@ import fire
 
 from EduData.DataSet.download_data.download_data import get_data, list_resources
 from EduData.Task.KnowledgeTracing.format import tl2json, json2tl
-from EduData.Task.KnowledgeTracing.statistics import analysis_records
+from EduData.Task.KnowledgeTracing.statistics import analysis_records, analysis_edges
 from longling.ML.toolkit.dataset import train_valid_test, kfold
 from EduData.DataSet.junyi import extract_relations, build_json_sequence
+from EduData.Task.KnowledgeTracing.graph import dense_graph, transition_graph, correct_transition_graph
 
 
 def cli():  # pragma: no cover
@@ -18,6 +19,7 @@ def cli():  # pragma: no cover
             "tl2json": tl2json,
             "json2tl": json2tl,
             "kt_stat": analysis_records,
+            "edge_stat": analysis_edges,
             "train_valid_test": train_valid_test,
             "kfold": kfold,
             "dataset": {
@@ -27,6 +29,11 @@ def cli():  # pragma: no cover
                         "build_json_sequence": build_json_sequence,
                     }
                 }
+            },
+            "graph": {
+                "dense": dense_graph,
+                "trans": transition_graph,
+                "ctrans": correct_transition_graph,
             }
         }
     )
