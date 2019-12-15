@@ -6,6 +6,7 @@ from EduData.DataSet.junyi import extract_relations, build_json_sequence
 from EduData.Task.KnowledgeTracing.format import tl2json, json2tl
 from EduData.Task.KnowledgeTracing.statistics import analysis_records, analysis_edges
 from EduData.Task.KnowledgeTracing.graph import dense_graph, transition_graph, correct_transition_graph
+from EduData.Task.KnowledgeTracing.graph import similarity_graph
 
 
 def test_junyi(shared_data_dir):
@@ -32,8 +33,13 @@ def test_graph(shared_data_dir):
     json_src = path_append(shared_data_dir, "junyi", "data", "student_log_kt_1000.json", to_str=True)
 
     dense_graph(835, path_append(shared_data_dir, "dense_graph", to_str=True))
-    transition_graph(835, json_src, tar=path_append(shared_data_dir, "transition_graph", to_str=True))
-    correct_transition_graph(835, json_src, tar=path_append(shared_data_dir, "correct_transition_graph", to_str=True))
+    trans_graph = path_append(shared_data_dir, "transition_graph", to_str=True)
+    transition_graph(835, json_src, tar=trans_graph)
+    ctrans_graph = path_append(shared_data_dir, "correct_transition_graph", to_str=True)
+    correct_transition_graph(835, json_src, tar=ctrans_graph)
+
+    ctrans_sim = path_append(shared_data_dir, "correct_transition_sim_graph", to_str=True)
+    similarity_graph(835, ctrans_graph, ctrans_sim)
 
 
 def test_analysis(shared_data_dir):
