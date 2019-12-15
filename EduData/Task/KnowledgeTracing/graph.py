@@ -92,8 +92,9 @@ def transition_graph(ku_num, *src, tar):
     _output_graph(_transition_graph, tar)
 
 
-def similarity_graph(ku_num, src, tar):
-    with open(src) as f:
+def similarity_graph(ku_num, src_graph, tar):
+    """construct similarity graph based on transition graph"""
+    with open(src_graph) as f:
         _transitions = json.load(f)
 
     _transition_graph = [[0] * ku_num for _ in range(ku_num)]
