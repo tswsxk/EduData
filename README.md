@@ -21,6 +21,8 @@ The dataset includes:
 
 * [math2015](http://staff.ustc.edu.cn/~qiliuql/data/math2015.rar)
 
+* [EdNet](https://github.com/riiid/ednet)
+
 Your can also visit our datashop [BaseData](http://base.ustc.edu.cn/data/) to get those mentioned-above (most of them) dataset.
 
 Except those mentioned-above dataset, we also provide some benchmark dataset for some specified task, which is listed as follows:
