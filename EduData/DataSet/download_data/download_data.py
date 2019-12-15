@@ -3,6 +3,7 @@
 
 __all__ = ["URL_DICT", "get_data", "list_resources"]
 
+import re
 import os
 from urllib.request import urlretrieve
 
@@ -48,6 +49,8 @@ URL_DICT = {
         "http://base.ustc.edu.cn/data/ktbd/a0910c/",
     "math2015":
         "http://staff.ustc.edu.cn/~qiliuql/data/math2015.rar",
+    "ednet":
+        []
 }
 
 
@@ -80,6 +83,8 @@ def download_file(url, save_path, override):
     if os.path.exists(save_path) and override:  # pragma: no cover
         os.remove(save_path)
         logger.info(save_path + ' will be overridden.')
+    elif os.path.exists(save_path):
+        raise FileExistsError()
 
     logger.info(url + ' is saved as ' + save_path)
     urlretrieve(url, save_path, reporthook=reporthook4urlretrieve)
@@ -138,7 +143,12 @@ def get_data(dataset, data_dir=DEFAULT_DATADIR, override=False, url_dict: dict =
     """
     url_dict = URL_DICT if not url_dict else url_dict
     try:
-        return download_data(url_dict[dataset], data_dir, override)
+        if dataset in url_dict:
+            return download_data(url_dict[dataset], data_dir, override)
+        elif re.match("http(s)://.*", dataset):
+            return download_data(dataset, data_dir, override)
+        else:
+            raise ValueError("%s is neither a valid dataset name nor an url" % dataset)
     except FileExistsError:  # pragma: no cover
         return path_append(data_dir, url_dict[dataset].split('/')[-1], to_str=True)
 
