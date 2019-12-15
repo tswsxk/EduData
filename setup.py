@@ -31,7 +31,8 @@ setup(
         'pandas',
         'fire',
         'lxml',
-        'numpy'
+        'numpy',
+        'scipy',
     ],  # And any other dependencies foo needs
     entry_points={
         "console_scripts": [
