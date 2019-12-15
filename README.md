@@ -76,6 +76,7 @@ ktbd-a0910
 ktbd-junyi
 ktbd-synthetic
 math2015
+ednet
 ```
 
 Download the dataset by specifying the name of dataset:
