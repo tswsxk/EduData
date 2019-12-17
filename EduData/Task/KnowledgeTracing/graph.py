@@ -5,6 +5,9 @@ import json
 from longling import wf_open
 from tqdm import tqdm
 import numpy as np
+from scipy.spatial.distance import cdist
+
+__all__ = ["dense_graph", "correct_transition_graph", "transition_graph", "similarity_graph"]
 
 
 def dense_graph(ku_num, tar):
@@ -89,3 +92,34 @@ def transition_graph(ku_num, *src, tar):
 
     _transition_graph = _count_to_probability(count_graph)
     _output_graph(_transition_graph, tar)
+
+
+def similarity_graph(ku_num, src_graph, tar):
+    """construct similarity graph based on transition graph"""
+    with open(src_graph) as f:
+        _transitions = json.load(f)
+
+    _transition_graph = [[0] * ku_num for _ in range(ku_num)]
+
+    for id1, id2, value in _transitions:
+        _transition_graph[id1][id2] = float(value)
+
+    _transition_graph = np.asarray(_transition_graph)
+    _dist_graph = 1 - cdist(_transition_graph, _transition_graph, 'cosine')
+
+    _dist_graph[np.isnan(_dist_graph)] = 0
+    _similarity_graph = (_dist_graph - _dist_graph.min()) / (_dist_graph.max() - _dist_graph.min())
+    _output_graph(_similarity_graph, tar)
+
+
+if __name__ == '__main__':
+    similarity_graph(
+        124,
+        "../../../data/assistment_2009_2010/transition_graph.json",
+        "../../../data/assistment_2009_2010/trans_sim.json"
+    )
+    similarity_graph(
+        124,
+        "../../../data/assistment_2009_2010/correct_transition_graph.json",
+        "../../../data/assistment_2009_2010/ctrans_sim.json"
+    )

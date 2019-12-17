@@ -8,7 +8,9 @@ from EduData.Task.KnowledgeTracing.format import tl2json, json2tl
 from EduData.Task.KnowledgeTracing.statistics import analysis_records, analysis_edges
 from longling.ML.toolkit.dataset import train_valid_test, kfold
 from EduData.DataSet.junyi import extract_relations, build_json_sequence
+from EduData.DataSet.EdNet import build_interactions, select_n_most_active
 from EduData.Task.KnowledgeTracing.graph import dense_graph, transition_graph, correct_transition_graph
+from EduData.Task.KnowledgeTracing.graph import similarity_graph
 
 
 def cli():  # pragma: no cover
@@ -28,12 +30,19 @@ def cli():  # pragma: no cover
                         "extract_relations": extract_relations,
                         "build_json_sequence": build_json_sequence,
                     }
+                },
+                "ednet": {
+                    "kt": {
+                        "build_json_sequence": build_interactions,
+                        "select_n": select_n_most_active,
+                    }
                 }
             },
             "graph": {
                 "dense": dense_graph,
                 "trans": transition_graph,
                 "ctrans": correct_transition_graph,
+                "sim": similarity_graph,
             }
         }
     )

@@ -11,7 +11,7 @@ test_deps = [
 
 setup(
     name='EduData',
-    version='0.0.6',
+    version='0.0.7',
     extras_require={
         'test': test_deps,
     },
@@ -31,7 +31,8 @@ setup(
         'pandas',
         'fire',
         'lxml',
-        'numpy'
+        'numpy',
+        'scipy',
     ],  # And any other dependencies foo needs
     entry_points={
         "console_scripts": [
