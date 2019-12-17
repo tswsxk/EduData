@@ -50,7 +50,9 @@ URL_DICT = {
     "math2015":
         "http://staff.ustc.edu.cn/~qiliuql/data/math2015.rar",
     "ednet":
-        "http://base.ustc.edu.cn/data/EdNet/"
+        "http://base.ustc.edu.cn/data/EdNet/",
+    "ktbd-ednet":
+        "http://base.ustc.edu.cn/data/ktbd/EdNet/"
 }
 
 
