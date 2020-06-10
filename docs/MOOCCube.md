@@ -1,16 +1,10 @@
-### 疑问
-1. 未找到有关concept_map的描述，所以concept_map.json文件的字段未标注含义
-2. MOOCQA没有搞明白是怎么回事，所以这部分的统计没有做
-3. prerequisite_prediction.json的字段未描述含义
+# MOOCCube 数据集说明
 
+[data source](http://moocdata.cn/data/MOOCCube)
 
-文档中的数据统计在 MOOCCube: A Large-scale Data Repository for NLP Applications in MOOCs 中的Table 1: Statistics of existing NLP-in-Education datasets.
+**Notice 以下文件均为jsonl格式**
 
-
-**以下文件均为jsonl格式**
-
-# Meaning of Fields
-## MOOCCube
+## Meaning of fields
 ### entities
 #### concept.json
 字段名  | 说明
@@ -205,3 +199,7 @@ concept|post|pre|up|down|rel|attributes
 ---|---|---|---|---|---|---
 节点|[]|[]|["图"]|["叶节点","关节点"]|["叶","树结构","出度","顶点","兄弟","连通性","入度","深度优先搜索","连通图","迪杰斯特拉算法","无向图","前驱","哈密顿回路问题","子树"]|["关键码","子树","高度","树根","叶","分支","步","右子","定义","数值","深度","左子","次序"]
 线性阵列|[]|[]|[]|[]|[]|[]
+
+## Analysis
+
+TBA
