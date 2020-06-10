@@ -20,7 +20,7 @@ name    | 概念名称
 en      | 概念英文名
 explanation | 所属学科，定义，见载
 
-- example
+* Example
 
 id|name|en|explanation
 ---|---|---|---|
@@ -39,7 +39,7 @@ video_order | 视频的顺序(视频id号)
 display_name | 视频名称(同上一行的视频id对应)
 charpter    | ？
 
-- example
+* Example
 
 id|name|prerequisites|about|core_id|video_order|display_name|charpter
 ---|---|---|---|---|---|---|---
@@ -65,7 +65,7 @@ urls    |
 venue   | ？
 year    | 发表时间
 
-- example
+* Example
   
 id|name|abstract|authors|doi|lang|num_citation|pages|pdf|sourcetype|title|urls|venue|year
 ---|---|---|---|---|---|---|---|---|---|---|---|---|---
@@ -79,7 +79,7 @@ id      | 学校英文缩写
 name    | 学校中文名全称
 about   | 简介
 
-- example
+* Example
   
 id|name|about
 ---|---|---
@@ -94,7 +94,7 @@ id      | 老师姓名，例如：T_方维奇
 name    | 老师姓名，例如：方维奇
 about   | 老师简介
 
-- example
+* Example
   
 id|name|about
 ---|---|---
@@ -110,7 +110,7 @@ course_order    | 课程学习顺序
 enroll_time     | 课程的注册时间，与course_order对应
 
 
-- example
+* Example
 
 id|name|course_order|enroll_time
 ---|---|---|---|---
@@ -127,7 +127,7 @@ start   | ?
 end     | ?
 text    | 视频字幕
 
-- example
+* Example
 
 id|name|start|end|text
 ---|---|---|---|---
@@ -147,7 +147,7 @@ baidu_snippet_zh    | title，URL，snippet， score(?)
 google_translation  | 谷歌翻译
 properties  | 性质，不同的概念性质所含有的属性不同
 
-- example
+* Example
 
 name|wiki_abstract|baidu_abstract|baidu_snippet_zh|google_translation|properties
 ---|---|---|---|---|---
@@ -164,7 +164,7 @@ label|
 predict|
 
 
-- example
+* Example
 
 c1|c2|label|predict
 ---|---|---|---
@@ -177,7 +177,7 @@ B树|一元函数|-1|[0.9844805479049683, 0.015519446431426331]
 id  | 用户ID
 activity    | 包含多个活动记录。course_id，video_id，watching_count，video_duration，local_watching_time，video_start_time，video_end_time，local_start_time，local_end_time 
   
-- example
+* Example
 
 id|activity
 ---|---
@@ -199,7 +199,7 @@ down    |
 rel     |
 attributes |
 
-- example
+* Example
 
 concept|post|pre|up|down|rel|attributes
 ---|---|---|---|---|---|---
