@@ -113,7 +113,7 @@ enroll_time     | 课程的注册时间，与course_order对应
 * Example
 
 id|name|course_order|enroll_time
----|---|---|---|---
+---|---|---|---
 U_7001215|李喜锋|["C_course-v1:TsinghuaX+00740043_2x_2015_T2+sp","C_course-v1:TsinghuaX+30240184+sp","C_course-v1:TsinghuaX+00740043X_2015_T2+sp","C_course-v1:TsinghuaX+10421094X_2015_2+sp","C_course-v1:TsinghuaX+30240184_2X+sp"]|["2017-05-01 11:07:53","2017-05-17 10:07:17","2017-05-01 11:09:21","2017-11-30 14:14:40","2017-08-18 21:21:32"]
 U_7193771|阙俊语| ["C_course-v1:TsinghuaX+30240243X+sp","C_course-v1:NJU+C1026+2016_T2"]|["2017-08-01 22:13:58","2017-07-31 22:37:50"]
 
