@@ -6,6 +6,7 @@ from longling import wf_open
 from tqdm import tqdm
 import numpy as np
 from scipy.spatial.distance import cdist
+import fileinput
 
 __all__ = ["dense_graph", "correct_transition_graph", "transition_graph", "similarity_graph"]
 
@@ -37,7 +38,7 @@ def _output_graph(graph, tar):
 
     for i in range(ku_num):
         for j in range(ku_num):
-            if i != j and graph[i][j] > 0:
+            if i != j and not np.isnan(graph[i][j]) and graph[i][j] > 0:
                 _graph.append([i, j, graph[i][j]])
 
     with wf_open(tar) as wf:
@@ -47,51 +48,112 @@ def _output_graph(graph, tar):
 def correct_transition_graph(ku_num, *src, tar):
     count_graph = [[0] * ku_num for _ in range(ku_num)]
 
-    for filename in src:
-        with open(filename) as f:
-            for line in tqdm(f, "constructing transition graph"):
-                if not line.strip():  # pragma: no cover
-                    continue
-                seq = json.loads(line)
-                pre_c = None
-                for eid, r in seq:
-                    if pre_c is not None:
-                        if eid != pre_c and r == 1:
-                            count_graph[pre_c][eid] += 1
-                        elif r == 1:
-                            # count_graph[pre_c][eid] += 1
-                            pass
-                    if r == 1:
-                        pre_c = eid
-                    else:
-                        pre_c = None
+    with fileinput.input(files=src) as f:
+        for line in tqdm(f, "constructing transition graph"):
+            if not line.strip():  # pragma: no cover
+                continue
+            seq = json.loads(line)
+            pre_c = None
+            for eid, r in seq:
+                if pre_c is not None:
+                    if eid != pre_c and r == 1:
+                        count_graph[pre_c][eid] += 1
+                    elif r == 1:
+                        # count_graph[pre_c][eid] += 1
+                        pass
+                if r == 1:
+                    pre_c = eid
+                else:
+                    pre_c = None
 
     _transition_graph = _count_to_probability(count_graph)
-
     _output_graph(_transition_graph, tar)
 
 
 def transition_graph(ku_num, *src, tar):
     count_graph = [[0] * ku_num for _ in range(ku_num)]
 
-    for filename in src:
-        with open(filename) as f:
-            for line in tqdm(f, "constructing transition graph"):
-                if not line.strip():  # pragma: no cover
-                    continue
-                seq = json.loads(line)
-                pre = None
-                for eid, _ in seq:
-                    if pre is not None:
-                        if eid != pre:
+    with fileinput.input(files=src) as f:
+        for line in tqdm(f, "constructing transition graph"):
+            if not line.strip():  # pragma: no cover
+                continue
+            seq = json.loads(line)
+            pre = None
+            for eid, _ in seq:
+                if pre is not None:
+                    if eid != pre:
+                        try:
                             count_graph[pre][eid] += 1
-                        else:
-                            # count_graph[pre][eid] += 1
-                            pass
-                    pre = eid
+                        except IndexError:
+                            print(pre, eid)
+                            exit(-1)
+                    else:
+                        # count_graph[pre][eid] += 1
+                        pass
+                pre = eid
 
     _transition_graph = _count_to_probability(count_graph)
     _output_graph(_transition_graph, tar)
+
+
+def correct_concurrence_graph(ku_num, *src, tar):
+    count_graph = [[0] * ku_num for _ in range(ku_num)]
+
+    with fileinput.input(files=src) as f:
+        for line in tqdm(f, "constructing correct concurrence graph"):
+            if not line.strip():  # pragma: no cover
+                continue
+            seq = json.loads(line)
+            pre_c = None
+            for eid, r in seq:
+                if pre_c is not None:
+                    if eid != pre_c and r == 1:
+                        count_graph[pre_c][eid] += 1
+                    elif r == 1:
+                        # count_graph[pre_c][eid] += 1
+                        pass
+                if r == 1:
+                    pre_c = eid
+                else:
+                    pre_c = None
+
+    for i in range(ku_num):
+        for j in range(i + 1, ku_num):
+            count_graph[i][j] = count_graph[i][j] + count_graph[j][i] / (
+                abs(count_graph[i][j] - count_graph[j][i]) + 0.1)
+            count_graph[j][i] = count_graph[i][j]
+
+    count_graph = np.asarray(count_graph)
+    _concurrence_graph = (count_graph - count_graph.min()) / (count_graph.max() - count_graph.min())
+    _output_graph(_concurrence_graph, tar)
+
+
+def concurrence_graph(ku_num, *src, tar):
+    count_graph = [[0] * ku_num for _ in range(ku_num)]
+
+    with fileinput.input(files=src) as f:
+        for line in tqdm(f, "constructing concurrence graph"):
+            if not line.strip():  # pragma: no cover
+                continue
+            seq = json.loads(line)
+            pre = None
+            for eid, _ in seq:
+                if pre is not None:
+                    if eid != pre:
+                        try:
+                            count_graph[pre][eid] += 1
+                            count_graph[eid][pre] += 1
+                        except IndexError:
+                            print(pre, eid)
+                            exit(-1)
+                    else:
+                        # count_graph[pre][eid] += 1
+                        pass
+                pre = eid
+
+    count_graph = np.asarray(count_graph)
+    _concurrence_graph = (count_graph - count_graph.min()) / (count_graph.max() - count_graph.min())
+    _output_graph(_concurrence_graph, tar)
 
 
 def similarity_graph(ku_num, src_graph, tar):
@@ -107,9 +169,9 @@ def similarity_graph(ku_num, src_graph, tar):
     _transition_graph = np.asarray(_transition_graph)
     _dist_graph = 1 - cdist(_transition_graph, _transition_graph, 'cosine')
 
-    _dist_graph[np.isnan(_dist_graph)] = 0
-    _similarity_graph = (_dist_graph - _dist_graph.min()) / (_dist_graph.max() - _dist_graph.min())
-    _output_graph(_similarity_graph, tar)
+    _output_graph(_dist_graph, tar)
+
+    _output_graph()
 
 
 if __name__ == '__main__':
