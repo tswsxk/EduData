@@ -24,7 +24,7 @@ setup(
     install_requires=[
         'tqdm',
         'networkx',
-        'longling>=1.3.2',
+        'longling>=1.3.14',
         'requests',
         'bs4',
         'rarfile',
