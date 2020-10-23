@@ -171,8 +171,6 @@ def similarity_graph(ku_num, src_graph, tar):
 
     _output_graph(_dist_graph, tar)
 
-    _output_graph()
-
 
 if __name__ == '__main__':
     similarity_graph(
