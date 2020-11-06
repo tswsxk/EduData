@@ -32,7 +32,8 @@ setup(
         'fire',
         'lxml',
         'numpy',
-        'scipy',
+        'scipy>=1.2.0',
+        'scikit-learn>=0.23.2',
     ],  # And any other dependencies foo needs
     entry_points={
         "console_scripts": [
