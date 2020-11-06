@@ -447,18 +447,18 @@ def posterior_correct_transition_graph(ku_num, *src, tar=None, input_is_file=Tru
     Returns
     -------
     >>> _seq = [[[0, 1], [1, 0], [1, 1], [2, 1]], [[2, 0], [1, 0], [0, 1], [2, 1]]]
-    >>> posterior_correct_probability_graph(3, _seq, input_is_file=False)
+    >>> posterior_correct_transition_graph(3, _seq, input_is_file=False)
     [[0.0, 0.5, 0.5], [0.0, 0.0, 1.0], [0.0, 0.0, 0.0]]
     >>> _seq = [[[0, 1], [1, 0], [1, 1], [2, 1]], [[2, 0], [1, 0], [0, 1], [2, 1]]]
-    >>> posterior_correct_probability_graph(3, _seq, input_is_file=False)
+    >>> posterior_correct_transition_graph(3, _seq, input_is_file=False)
     [[0.0, 0.5, 0.5], [0.0, 0.0, 1.0], [0.0, 0.0, 0.0]]
     """
     return _row_normalize(
         posterior_correct_probability_graph(
             ku_num,
             *src,
-            tar,
-            input_is_file
+            tar=tar,
+            input_is_file=input_is_file
         ),
         diagonal_value=diagonal_value,
         skip_zero_row=True
