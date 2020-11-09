@@ -1,9 +1,9 @@
 # coding: utf-8
 # 2019/12/12 @ tongshiwei
 
-import warnings
 import fileinput
 import json
+import warnings
 
 import numpy as np
 from longling import wf_open
@@ -13,7 +13,9 @@ from tqdm import tqdm
 
 __all__ = [
     "dense_graph",
+    "correct_transition_count_graph",
     "correct_transition_graph", "transition_graph",
+    "posterior_correct_probability_graph", "posterior_correct_transition_graph",
     "similarity_graph",
     "concurrence_graph", "correct_co_influence_graph"
 ]
