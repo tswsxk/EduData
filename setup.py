@@ -6,12 +6,12 @@ from setuptools import setup, find_packages
 test_deps = [
     'pytest>=4',
     'pytest-cov>=2.6.0',
-    'pytest-pep8>=1',
+    'pytest-flake8',
 ]
 
 setup(
     name='EduData',
-    version='0.0.7',
+    version='0.0.8',
     extras_require={
         'test': test_deps,
     },
@@ -24,7 +24,7 @@ setup(
     install_requires=[
         'tqdm',
         'networkx',
-        'longling>=1.3.2',
+        'longling[ml]>=1.3.15',
         'requests',
         'bs4',
         'rarfile',
@@ -32,7 +32,8 @@ setup(
         'fire',
         'lxml',
         'numpy',
-        'scipy',
+        'scipy>=1.2.0',
+        'scikit-learn>=0.23.2',
     ],  # And any other dependencies foo needs
     entry_points={
         "console_scripts": [
