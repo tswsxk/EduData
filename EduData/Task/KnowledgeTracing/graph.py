@@ -409,7 +409,7 @@ def posterior_correct_probability_graph(ku_num, *src, tar=None, input_is_file=Tr
 
     if input_is_file:
         with fileinput.input(files=src) as f:
-            for line in tqdm(f, "constructing coorect transition graph"):
+            for line in tqdm(f, "constructing correct transition graph"):
                 if not line.strip():  # pragma: no cover
                     continue
                 seq = json.loads(line)
