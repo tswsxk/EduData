@@ -476,7 +476,7 @@ def posterior_correct_transition_graph(ku_num, *src, tar=None, input_is_file=Tru
     )
 
 
-def correct_co_influence_graph(ku_num, *src, tar=None, input_is_file=True):
+def correct_co_influence_graph(ku_num, *src, tar=None, input_is_file=True):  # pragma: no cover
     """
 
     Co-influence graph
@@ -525,7 +525,7 @@ def correct_co_influence_graph(ku_num, *src, tar=None, input_is_file=True):
     return _concurrence_graph
 
 
-def concurrence_graph(ku_num, *src, tar):
+def concurrence_graph(ku_num, *src, tar):  # pragma: no cover
     warnings.warn("do not use this function due to the lack of support from theory")
 
     count_graph = [[0] * ku_num for _ in range(ku_num)]
