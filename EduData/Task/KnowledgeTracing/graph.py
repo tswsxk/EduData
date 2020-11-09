@@ -144,6 +144,10 @@ def _row_normalize(count_graph, diagonal_value=None, normalized_by_softmax=False
     array([[3.33333333e-01, 3.33333333e-01, 3.33333333e-01],
            [2.95387223e-04, 1.19167711e-01, 8.80536902e-01],
            [1.00000000e+00, 7.28129018e-33, 2.44260074e-36]])
+    >>> np.asarray(_row_normalize(_count_graph, normalized_by_softmax=True, diagonal_value=0.0))
+    array([[0.00000000e+00, 5.00000000e-01, 5.00000000e-01],
+           [3.35350130e-04, 0.00000000e+00, 9.99664650e-01],
+           [1.00000000e+00, 7.28129018e-33, 0.00000000e+00]])
     """
     _graph = np.asarray(count_graph)
     zero_rows_indices = None
