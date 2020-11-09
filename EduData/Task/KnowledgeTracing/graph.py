@@ -1,6 +1,7 @@
 # coding: utf-8
 # 2019/12/12 @ tongshiwei
 
+import warnings
 import fileinput
 import json
 
@@ -10,8 +11,12 @@ from scipy.spatial.distance import cdist
 from scipy.special import softmax
 from tqdm import tqdm
 
-__all__ = ["dense_graph", "correct_transition_graph", "transition_graph", "similarity_graph",
-           "concurrence_graph", "correct_co_influence_graph"]
+__all__ = [
+    "dense_graph",
+    "correct_transition_graph", "transition_graph",
+    "similarity_graph",
+    "concurrence_graph", "correct_co_influence_graph"
+]
 
 
 def dense_graph(ku_num: int, tar=None, undirected: bool = False):
@@ -500,6 +505,7 @@ def correct_co_influence_graph(ku_num, *src, tar=None, input_is_file=True):
            [1., 0., 0.],
            [0., 0., 0.]])
     """
+    warnings.warn("do not use this function due to the lack of support from theory")
     count_graph = correct_transition_count_graph(ku_num, *src, tar=None, input_is_file=input_is_file)
 
     for i in range(ku_num):
@@ -518,6 +524,8 @@ def correct_co_influence_graph(ku_num, *src, tar=None, input_is_file=True):
 
 
 def concurrence_graph(ku_num, *src, tar):
+    warnings.warn("do not use this function due to the lack of support from theory")
+
     count_graph = [[0] * ku_num for _ in range(ku_num)]
 
     with fileinput.input(files=src) as f:
