@@ -11,6 +11,7 @@ from longling import path_append, as_out_io
 
 from EduData.Task.KnowledgeTracing.graph import (dense_graph,
                                                  correct_transition_count_graph, correct_transition_graph,
+                                                 posterior_correct_probability_graph,
                                                  transition_graph, similarity_graph)
 
 
@@ -40,6 +41,9 @@ def test_graph(shared_data_dir, tmpdir):
 
     ctrans_graph = path_append(tmpdir, "correct_transition_graph", to_str=True)
     correct_transition_graph(4, tmpfile, tar=ctrans_graph)
+
+    pcp_graph = path_append(tmpdir, "posterior_correct_probability_graph", to_str=True)
+    posterior_correct_probability_graph(4, tmpfile, tar=pcp_graph)
 
     ctrans_sim = path_append(shared_data_dir, "correct_transition_sim_graph", to_str=True)
     similarity_graph(4, ctrans_graph, ctrans_sim)
