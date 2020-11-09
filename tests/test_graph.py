@@ -9,7 +9,8 @@ import json
 
 from longling import path_append, as_out_io
 
-from EduData.Task.KnowledgeTracing.graph import (dense_graph, correct_transition_graph,
+from EduData.Task.KnowledgeTracing.graph import (dense_graph,
+                                                 correct_transition_count_graph, correct_transition_graph,
                                                  transition_graph, similarity_graph)
 
 
@@ -33,6 +34,9 @@ def test_graph(shared_data_dir, tmpdir):
 
     trans_graph = path_append(tmpdir, "transition_graph", to_str=True)
     transition_graph(4, tmpfile, tar=trans_graph)
+
+    ctrans_count_graph = path_append(tmpdir, "correct_transition_count_graph", to_str=True)
+    correct_transition_count_graph(4, tmpfile, tar=ctrans_count_graph)
 
     ctrans_graph = path_append(tmpdir, "correct_transition_graph", to_str=True)
     correct_transition_graph(4, tmpfile, tar=ctrans_graph)
