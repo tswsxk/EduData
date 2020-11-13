@@ -3,8 +3,8 @@
 
 __all__ = ["URL_DICT", "get_data", "list_resources"]
 
-import re
 import os
+import re
 from urllib.request import urlretrieve
 
 import requests
@@ -47,6 +47,8 @@ URL_DICT = {
         "http://base.ustc.edu.cn/data/ktbd/synthetic/",
     "ktbd-a0910c":
         "http://base.ustc.edu.cn/data/ktbd/a0910c/",
+    "cdbd-a0910":
+        "http://base.ustc.edu.cn/data/cdbd/a0910/",
     "math2015":
         "http://staff.ustc.edu.cn/~qiliuql/data/math2015.rar",
     "ednet":
