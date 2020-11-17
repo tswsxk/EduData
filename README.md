@@ -28,6 +28,7 @@ Your can also visit our datashop [BaseData](http://base.ustc.edu.cn/data/) to ge
 Except those mentioned-above dataset, we also provide some benchmark dataset for some specified task, which is listed as follows:
 
 * [knowledge tracing benchmark dataset](http://base.ustc.edu.cn/data/ktbd/)
+* [cognitive diagnosis benchmark dataset](http://base.ustc.edu.cn/data/cdbd/)
 
 ## Installation
 Git and install by `pip`
