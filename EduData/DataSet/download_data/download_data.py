@@ -37,6 +37,10 @@ URL_DICT = {
         "http://base.ustc.edu.cn/data/slepemapy.cz/",
     "synthetic":
         "http://base.ustc.edu.cn/data/synthetic/",
+    "psychometrics":
+        "http://base.ustc.edu.cn/data/psychometrics/",
+    "psy":
+        "http://base.ustc.edu.cn/data/psychometrics/",
     "ktbd":
         "http://base.ustc.edu.cn/data/ktbd/",
     "ktbd-a0910":
