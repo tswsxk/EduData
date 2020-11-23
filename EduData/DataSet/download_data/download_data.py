@@ -37,6 +37,10 @@ URL_DICT = {
         "http://base.ustc.edu.cn/data/slepemapy.cz/",
     "synthetic":
         "http://base.ustc.edu.cn/data/synthetic/",
+    "psychometrics":
+        "http://base.ustc.edu.cn/data/psychometrics/",
+    "psy":
+        "http://base.ustc.edu.cn/data/psychometrics/",
     "ktbd":
         "http://base.ustc.edu.cn/data/ktbd/",
     "ktbd-a0910":
@@ -47,6 +51,10 @@ URL_DICT = {
         "http://base.ustc.edu.cn/data/ktbd/synthetic/",
     "ktbd-a0910c":
         "http://base.ustc.edu.cn/data/ktbd/a0910c/",
+    "cdbd":
+        "http://base.ustc.edu.cn/data/cdbd/",
+    "cdbd-lsat":
+        "http://base.ustc.edu.cn/data/cdbd/LSAT/",
     "cdbd-a0910":
         "http://base.ustc.edu.cn/data/cdbd/a0910/",
     "math2015":
