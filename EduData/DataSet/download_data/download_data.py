@@ -41,6 +41,12 @@ URL_DICT = {
         "http://base.ustc.edu.cn/data/psychometrics/",
     "psy":
         "http://base.ustc.edu.cn/data/psychometrics/",
+    "pisa2015":
+        "http://base.ustc.edu.cn/data/pisa2015_science.zip",
+    "workbankr":
+        "http://base.ustc.edu.cn/data/wordbankr.zip",
+    "critlangacq":
+        "http://base.ustc.edu.cn/data/critlangacq.zip",
     "ktbd":
         "http://base.ustc.edu.cn/data/ktbd/",
     "ktbd-a0910":
