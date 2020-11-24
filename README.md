@@ -70,16 +70,12 @@ assistment-2009-2010-skill
 assistment-2012-2013-non-skill
 assistment-2015
 junyi
-KDD-CUP-2010
-slepemapy.cz
-synthetic
+...
 ktbd
 ktbd-a0910
 ktbd-junyi
 ktbd-synthetic
-math2015
-ednet
-ktbd-ednet
+...
 ```
 
 Download the dataset by specifying the name of dataset:
