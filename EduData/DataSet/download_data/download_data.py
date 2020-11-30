@@ -9,12 +9,21 @@ from urllib.request import urlretrieve
 
 import requests
 from bs4 import BeautifulSoup
+<<<<<<< HEAD
 from longling import config_logging, LogLevel, path_append, flush_print
 
 try:
     from .utils import decompress, reporthook4urlretrieve, yes_no, timestamp2time
 except (SystemError, ModuleNotFoundError):  # pragma: no cover
     from utils import decompress, reporthook4urlretrieve, yes_no, timestamp2time
+=======
+from longling import config_logging, LogLevel, path_append
+
+try:
+    from .utils import decompress, reporthook4urlretrieve
+except (SystemError, ModuleNotFoundError):  # pragma: no cover
+    from utils import decompress, reporthook4urlretrieve
+>>>>>>> 7d1f0d94bd140af86e70297ab49a61f0ae964e2a
 
 DEFAULT_DATADIR = path_append("./", "", to_str=True)
 
@@ -214,6 +223,7 @@ def get_data(dataset, data_dir=DEFAULT_DATADIR, override=False, url_dict: dict =
     else:
         raise ValueError("%s is neither a valid dataset name nor an url" % dataset)
 
+<<<<<<< HEAD
     save_path = path_append(data_dir, url.split('/')[-1], to_str=True)
     if os.path.exists(save_path):
         ans = yes_no("Find File Exist Resume Download (No means Override)?[Y/n]")
@@ -224,6 +234,12 @@ def get_data(dataset, data_dir=DEFAULT_DATADIR, override=False, url_dict: dict =
     except FileExistsError:
         return save_path
 
+=======
+    try:
+        return download_data(url, data_dir, override)
+    except FileExistsError:
+        return path_append(data_dir, url.split('/')[-1], to_str=True)
+>>>>>>> 7d1f0d94bd140af86e70297ab49a61f0ae964e2a
 
 
 def list_resources():
