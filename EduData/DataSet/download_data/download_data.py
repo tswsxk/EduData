@@ -104,11 +104,11 @@ def download_file(url, save_path, override, chunksize=65535):
     elif os.path.exists(save_path):
         # Resume download
         downloaded = os.stat(save_path).st_size
-        old_downloaded = downloaded
         local_timestamp = os.path.getctime(save_path)
         logger.info("{} already exists. Send resume request after {} bytes".format(
             save_path, downloaded))
         # raise FileExistsError()
+    old_downloaded = downloaded
 
     headers = {}
     if downloaded:
@@ -128,7 +128,7 @@ def download_file(url, save_path, override, chunksize=65535):
         # If file is already downloaded, it will reutrn `bytes */43968290`.
 
         if content_range and \
-            int(content_range.split(' ')[-1].split('-')[0]) == downloaded:
+                int(content_range.split(' ')[-1].split('-')[0]) == downloaded:
             mode = 'ab+'
 
     elif res.status_code == 416:
@@ -137,7 +137,7 @@ def download_file(url, save_path, override, chunksize=65535):
         logger.warning("Range not support. Redownloading...")
         urlretrieve(url, save_path, reporthook=reporthook4urlretrieve)
         return
-    
+
     elif res.status_code == 412:
         # 如果所请求的资源在指定的时间之后发生了修改，那么会返回 412 (Precondition Failed) 错误。
         logger.warning("Resource Changed, should override. Redownloading...")
@@ -150,7 +150,8 @@ def download_file(url, save_path, override, chunksize=65535):
             f.write(chunk)
             downloaded += len(chunk)
             # TODO:如何显示下载进度
-            flush_print('Downloading %s %.2f%%: %d | %d' % (save_path, downloaded/file_origin_size*100, downloaded, file_origin_size))
+            flush_print('Downloading %s %.2f%%: %d | %d' % (save_path, downloaded / file_origin_size * 100,
+                        downloaded, file_origin_size))
 
     # urlretrieve(url, save_path, reporthook=reporthook4urlretrieve)
     print()
@@ -223,7 +224,6 @@ def get_data(dataset, data_dir=DEFAULT_DATADIR, override=False, url_dict: dict =
         return download_data(url, data_dir, override)
     except FileExistsError:
         return save_path
-
 
 
 def list_resources():
