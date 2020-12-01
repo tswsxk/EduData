@@ -9,12 +9,12 @@ from urllib.request import urlretrieve
 
 import requests
 from bs4 import BeautifulSoup
-from longling import config_logging, LogLevel, path_append
+from longling import config_logging, LogLevel, path_append, flush_print
 
 try:
-    from .utils import decompress, reporthook4urlretrieve
+    from .utils import decompress, reporthook4urlretrieve, yes_no, timestamp2time
 except (SystemError, ModuleNotFoundError):  # pragma: no cover
-    from utils import decompress, reporthook4urlretrieve
+    from utils import decompress, reporthook4urlretrieve, yes_no, timestamp2time
 
 DEFAULT_DATADIR = path_append("./", "", to_str=True)
 
@@ -97,14 +97,63 @@ def get_dataset_name():  # pragma: no cover
                     URL_DICT[h[:-1]] = temp
 
 
-def download_file(url, save_path, override):
+def download_file(url, save_path, override, chunksize=65535):
+    downloaded = 0
     if os.path.exists(save_path) and override:
         logger.info(save_path + ' will be overridden.')
     elif os.path.exists(save_path):
-        raise FileExistsError()
+        # Resume download
+        downloaded = os.stat(save_path).st_size
+        local_timestamp = os.path.getctime(save_path)
+        logger.info("{} already exists. Send resume request after {} bytes".format(
+            save_path, downloaded))
+        # raise FileExistsError()
+    old_downloaded = downloaded
+
+    headers = {}
+    if downloaded:
+        headers['Range'] = 'bytes={}-'.format(downloaded)
+        headers['If-Unmodified-Since'] = timestamp2time(local_timestamp)
 
     logger.info(url + ' is saved as ' + save_path)
-    urlretrieve(url, save_path, reporthook=reporthook4urlretrieve)
+    res = requests.get(url, headers=headers, stream=True, timeout=15)
+
+    mode = 'wb+'
+    content_len = int(res.headers.get('content-length'))
+    # Check if server supports range feature, and works as expected.
+    if res.status_code == 206:
+        # Content range is in format `bytes 327675-43968289/43968290`, check
+        # if it starts from where we requested.
+        content_range = res.headers.get('content-range')
+        # If file is already downloaded, it will reutrn `bytes */43968290`.
+
+        if content_range and \
+                int(content_range.split(' ')[-1].split('-')[0]) == downloaded:
+            mode = 'ab+'
+
+    elif res.status_code == 416:
+        # 416 means Range field not support
+        # TODO:需要重新下载吗
+        logger.warning("Range not support. Redownloading...")
+        urlretrieve(url, save_path, reporthook=reporthook4urlretrieve)
+        return
+
+    elif res.status_code == 412:
+        # 如果所请求的资源在指定的时间之后发生了修改，那么会返回 412 (Precondition Failed) 错误。
+        logger.warning("Resource Changed, should override. Redownloading...")
+        urlretrieve(url, save_path, reporthook=reporthook4urlretrieve)
+        return
+
+    file_origin_size = content_len + old_downloaded
+    with open(save_path, mode) as f:
+        for chunk in res.iter_content(chunksize):
+            f.write(chunk)
+            downloaded += len(chunk)
+            # TODO:如何显示下载进度
+            flush_print('Downloading %s %.2f%%: %d | %d' % (save_path, downloaded / file_origin_size * 100,
+                        downloaded, file_origin_size))
+
+    # urlretrieve(url, save_path, reporthook=reporthook4urlretrieve)
     print()
     decompress(save_path)
 
@@ -166,10 +215,15 @@ def get_data(dataset, data_dir=DEFAULT_DATADIR, override=False, url_dict: dict =
     else:
         raise ValueError("%s is neither a valid dataset name nor an url" % dataset)
 
+    save_path = path_append(data_dir, url.split('/')[-1], to_str=True)
+    # if os.path.exists(save_path):
+    #     ans = yes_no("Find File Exist Resume Download (No means Override)?[Y/n]")
+    #     override = not ans
+
     try:
         return download_data(url, data_dir, override)
     except FileExistsError:
-        return path_append(data_dir, url.split('/')[-1], to_str=True)
+        return save_path
 
 
 def list_resources():

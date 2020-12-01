@@ -68,3 +68,23 @@ def reporthook4urlretrieve(blocknum, bs, size):
     if per > 100:
         per = 100
     flush_print('Downloading %.2f%% : %d | %d' % (per, blocknum * bs, size))
+
+
+def yes_no(ask):
+    yes = set(['yes', 'y', 'ye', ''])
+    no = set(['no', 'n'])
+
+    while True:
+        choice = input(ask)
+        if choice in yes:
+            return True
+        elif choice in no:
+            return False
+        else:
+            print("Illegal input! Please respond with 'yes' or 'no'")
+
+
+def timestamp2time(time_stamp):
+    import time
+    time_struct = time.localtime(time_stamp)
+    return time.strftime('%a, %d %b %Y %H:%M:%S GMT', time_struct)
