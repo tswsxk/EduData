@@ -216,9 +216,9 @@ def get_data(dataset, data_dir=DEFAULT_DATADIR, override=False, url_dict: dict =
         raise ValueError("%s is neither a valid dataset name nor an url" % dataset)
 
     save_path = path_append(data_dir, url.split('/')[-1], to_str=True)
-    if os.path.exists(save_path):
-        ans = yes_no("Find File Exist Resume Download (No means Override)?[Y/n]")
-        override = not ans
+    # if os.path.exists(save_path):
+    #     ans = yes_no("Find File Exist Resume Download (No means Override)?[Y/n]")
+    #     override = not ans
 
     try:
         return download_data(url, data_dir, override)
