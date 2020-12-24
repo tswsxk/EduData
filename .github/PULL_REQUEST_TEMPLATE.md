@@ -9,6 +9,7 @@ then fill out the blanks below.
 ...
 
 #### Pull request type
+- [ ] [DATASET] Add a new dataset
 - [ ] [BUGFIX] Bugfix
 - [ ] [FEATURE] New feature (non-breaking change which adds functionality)
 - [ ] [BREAKING] Breaking change (fix or feature that would cause existing functionality to not work as expected)
