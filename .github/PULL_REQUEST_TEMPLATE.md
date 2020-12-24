@@ -20,13 +20,13 @@ then fill out the blanks below.
 
 
 #### Changes
-- [ ] Feature1, tests, (and when applicable, API doc)
-- [ ] Feature2, tests, (and when applicable, API doc)
+- Feature1, tests, (and when applicable, API doc)
+- Feature2, tests, (and when applicable, API doc)
 
 or
 
-- [ ] Fix1, tests
-- [ ] Fix2, tests
+- Fix1, tests
+- Fix2, tests
 
 ### Does this close any currently open issues?
 ...
