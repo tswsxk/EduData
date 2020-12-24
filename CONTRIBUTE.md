@@ -29,4 +29,12 @@ If you try to add a new dataset, you should first upload the dataset to the webs
 * create the key-value pair in `URL_DICT` of [`download_data.py`](Edudata/Dataset/download/data/download_data.py)
 * run `pytest` to test whether all test cases go well
 
+## FAQ
 
+Q: I have carefully test the code in my local system (all testing passed) but still failed in online ci?
+ 
+A: There are two possible reasons: 
+1. the online ci system is different from your local system;
+2. there are some network error causing the downloading test failed, which you can find in the ci log.
+
+For the second reason, all you need to do is to retry the test. 
