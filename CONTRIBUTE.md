@@ -10,7 +10,7 @@ based on the type of contribution:
     and we shall discuss the design and implementation. 
     Once we agree that the plan looks good, go ahead and implement it.
 2. You want to implement a feature or bug-fix for an outstanding issue.
-    * Search for your issue in the PyTorch issue list.
+    * Search for your issue in the EduData issue list.
     * Pick an issue and comment that you'd like to work on the feature or bug-fix.
     * If you need more context on a particular issue, please ask and we shall provide.
 3. You want to add the data analysis or a mew dataset
