@@ -68,7 +68,9 @@ URL_DICT = {
     "ednet":
         "http://base.ustc.edu.cn/data/EdNet/",
     "ktbd-ednet":
-        "http://base.ustc.edu.cn/data/ktbd/EdNet/"
+        "http://base.ustc.edu.cn/data/ktbd/EdNet/",
+    "math23k":
+        "http://base.ustc.edu.cn/data/math23k.zip"
 }
 
 
