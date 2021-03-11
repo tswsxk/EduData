@@ -10,10 +10,10 @@ based on the type of contribution:
     and we shall discuss the design and implementation. 
     Once we agree that the plan looks good, go ahead and implement it.
 2. You want to implement a feature or bug-fix for an outstanding issue.
-    * Search for your issue in the PyTorch issue list.
+    * Search for your issue in the [EduData issue list](https://github.com/bigdata-ustc/EduData/issues).
     * Pick an issue and comment that you'd like to work on the feature or bug-fix.
     * If you need more context on a particular issue, please ask and we shall provide.
-3. You want to add the data analysis or a mew dataset
+3. You want to add the data analysis or a new dataset
 
 Once you implement and test your feature or bug-fix, 
 please submit a Pull Request to [https://github.com/bigdata-ustc/EduData](https://github.com/bigdata-ustc/EduData)
