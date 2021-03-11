@@ -31,7 +31,7 @@ setup(
         'pandas',
         'fire',
         'lxml',
-        'numpy',
+        'numpy>=1.16.5',
         'scipy>=1.2.0',
         'scikit-learn>=0.23.2',
     ],  # And any other dependencies foo needs
