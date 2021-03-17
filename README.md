@@ -34,7 +34,7 @@ The dataset includes:
 
 * [MOOCCube](http://moocdata.cn/data/MOOCCube) [[Analysis]](docs/MOOCCube.md)
 
-Your can also visit our datashop [BaseData](http://base.ustc.edu.cn/data/) to get those mentioned-above (most of them) dataset.
+Your can also visit our datashop [BaseData](http://base.ustc.edu.cn/data/) to get those mentioned-above (most of them) datasets.
 
 Except those mentioned-above dataset, we also provide some benchmark dataset for some specified task, which is listed as follows:
 
