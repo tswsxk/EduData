@@ -8,7 +8,7 @@ Convenient interface for downloading and preprocessing dataset in education.
 
 The dataset includes:
 
-* [KDD Cup 2010](https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp) [[Analysis]]()
+* [KDD Cup 2010](https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp) [Analysis](TBA)
 
 * [ASSISTments](https://sites.google.com/site/assistmentsdata/) [[Analysis]](docs/ASSISTments2009-2010.ipynb)
 
@@ -20,7 +20,7 @@ The dataset includes:
 
 * [synthetic](https://github.com/chrispiech/DeepKnowledgeTracing/tree/master/data/synthetic)
 
-* [math2015](http://staff.ustc.edu.cn/~qiliuql/files/Publications/Qi-Liu-TIST2018.pdf) [[Analysis]]()
+* [math2015](http://staff.ustc.edu.cn/~qiliuql/files/Publications/Qi-Liu-TIST2018.pdf) [Analysis](TBA)
 
 * [EdNet](https://github.com/riiid/ednet)
 
