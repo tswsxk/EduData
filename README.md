@@ -1,7 +1,7 @@
 # EduData
 [![PyPI](https://img.shields.io/pypi/v/EduData.svg)](https://pypi.python.org/pypi/EduData)
-[![Build Status](https://www.travis-ci.org/tswsxk/EduData.svg?branch=master)](https://www.travis-ci.org/tswsxk/EduData)
-[![codecov](https://codecov.io/gh/tswsxk/EduData/branch/master/graph/badge.svg)](https://codecov.io/gh/tswsxk/EduData)
+[![Build Status](https://www.travis-ci.org/bigdata-ustc/EduData.svg?branch=master)](https://www.travis-ci.org/bigdata-ustc/EduData)
+[![codecov](https://codecov.io/gh/bigdata-ustc/EduData/branch/master/graph/badge.svg)](https://codecov.io/gh/bigdata-ustc/EduData)
 [![Download](https://img.shields.io/pypi/dm/EduData.svg?style=flat)](https://pypi.python.org/pypi/EduData)
 [![License](https://img.shields.io/github/license/bigdata-ustc/EduData)](LICENSE)
 
