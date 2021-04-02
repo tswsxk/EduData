@@ -12,4 +12,6 @@
 
 [LiYang He](https://github.com/hly1998)
 
+[Xin Jin](https://github.com/kingiv4)
+
 The stared contributors are the main authors. 
