@@ -21,7 +21,7 @@ The dataset includes:
 
 * [synthetic](https://github.com/chrispiech/DeepKnowledgeTracing/tree/master/data/synthetic)
 
-* [math2015](http://staff.ustc.edu.cn/~qiliuql/files/Publications/Qi-Liu-TIST2018.pdf) [Analysis] (TBA)
+* [math2015](http://staff.ustc.edu.cn/~qiliuql/files/Publications/Qi-Liu-TIST2018.pdf) [Analysis](docs/math2015)
 
 * [EdNet](https://github.com/riiid/ednet)
 
