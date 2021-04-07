@@ -14,4 +14,6 @@
 
 [Xin Jin](https://github.com/kingiv4)
 
+[Fangzhou Yao](https://github.com/fannazya)
+
 The stared contributors are the main authors. 
