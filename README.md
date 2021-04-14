@@ -1,38 +1,41 @@
 # EduData
 [![PyPI](https://img.shields.io/pypi/v/EduData.svg)](https://pypi.python.org/pypi/EduData)
-[![Build Status](https://www.travis-ci.org/tswsxk/EduData.svg?branch=master)](https://www.travis-ci.org/tswsxk/EduData)
-[![codecov](https://codecov.io/gh/tswsxk/EduData/branch/master/graph/badge.svg)](https://codecov.io/gh/tswsxk/EduData)
+[![Build Status](https://www.travis-ci.org/bigdata-ustc/EduData.svg?branch=master)](https://www.travis-ci.org/bigdata-ustc/EduData)
+[![codecov](https://codecov.io/gh/bigdata-ustc/EduData/branch/master/graph/badge.svg)](https://codecov.io/gh/bigdata-ustc/EduData)
 [![Download](https://img.shields.io/pypi/dm/EduData.svg?style=flat)](https://pypi.python.org/pypi/EduData)
+[![License](https://img.shields.io/github/license/bigdata-ustc/EduData)](LICENSE)
 
 Convenient interface for downloading and preprocessing dataset in education.
 
 The dataset includes:
 
-* [KDD Cup 2010](https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp)
+* [KDD Cup 2010](https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp) [Analysis] (TBA)
 
-* [ASSISTments](https://sites.google.com/site/assistmentsdata/)
+* [ASSISTments](https://sites.google.com/site/assistmentsdata/) [[Analysis]](docs/ASSISTments2009-2010.ipynb)
 
-* [OLI Engineering Statics 2011](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=507)
+* [OLI Engineering Statics 2011](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=507) [Analysis] (TBA)
 
-* [JunyiAcademy Math Practicing Log](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=1198) [[Annotation]](docs/junyi.md)
+* [JunyiAcademy Math Practicing Log](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=1198) [[Analysis]](docs/junyi.md)
 
 * [slepemapy.cz](https://www.fi.muni.cz/adaptivelearning/?a=data)
 
 * [synthetic](https://github.com/chrispiech/DeepKnowledgeTracing/tree/master/data/synthetic)
 
-* [math2015](http://staff.ustc.edu.cn/~qiliuql/data/math2015.rar)
+* [math2015](http://staff.ustc.edu.cn/~qiliuql/files/Publications/Qi-Liu-TIST2018.pdf) [[Analysis]](docs/math2015)
 
 * [EdNet](https://github.com/riiid/ednet)
 
-* [pisa2015math](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc)
+* [pisa2015math](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc) [Analysis] (TBA)
 
 * [workbankr](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc)
 
 * [critlangacq](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc)
 
-* [math23k](http://base.ustc.edu.cn/data/math23k.zip)
+* [math23k](http://base.ustc.edu.cn/data/math23k.zip) [Analysis] (TBA)
 
-Your can also visit our datashop [BaseData](http://base.ustc.edu.cn/data/) to get those mentioned-above (most of them) dataset.
+* [MOOCCube](http://moocdata.cn/data/MOOCCube) [[Analysis]](docs/MOOCCube.md)
+
+Your can also visit our datashop [BaseData](http://base.ustc.edu.cn/data/) to get those mentioned-above (most of them) datasets.
 
 Except those mentioned-above dataset, we also provide some benchmark dataset for some specified task, which is listed as follows:
 
