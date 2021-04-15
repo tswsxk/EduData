@@ -16,7 +16,7 @@
 
 [Fangzhou Yao](https://github.com/fannazya)
 
-[Qin Longhu](https://github.com/KenelmQLH)
+[Longhu Qin](https://github.com/KenelmQLH)
 
 The stared contributors are the main authors. 
 
