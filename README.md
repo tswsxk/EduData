@@ -11,7 +11,7 @@ The dataset includes:
 
 * [KDD Cup 2010](https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp) [Analysis] (TBA)
 
-* [ASSISTments](https://sites.google.com/site/assistmentsdata/) [[Analysis]](docs/ASSISTments2009-2010.ipynb)
+* [ASSISTments](https://sites.google.com/site/assistmentsdata/) [[Analysis]](docs/ASSISTments)
 
 * [OLI Engineering Statics 2011](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=507) [Analysis] (TBA)
 
@@ -161,7 +161,7 @@ and can be modeled by [XKT](https://github.com/bigdata-ustc/XKT) and TKT(TBA)
 # after preprocessing, a json sequence file, named student_log_kt_1000, can be found in junyi/data/
 # further preprocessing like spliting dataset into train and test can be performed
 >>> edudata train_valid_test junyi/data/student_log_kt_1000 -- --train_ratio 0.8 --valid_ratio 0.1 --test_ratio 0.1
-```  
+```
 
 ### Analysis Dataset
 This tool only supports the `json sequence` format. To check the following statical indexes of the dataset:
