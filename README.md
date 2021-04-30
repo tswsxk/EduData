@@ -4,6 +4,7 @@
 [![codecov](https://codecov.io/gh/bigdata-ustc/EduData/branch/master/graph/badge.svg)](https://codecov.io/gh/bigdata-ustc/EduData)
 [![Download](https://img.shields.io/pypi/dm/EduData.svg?style=flat)](https://pypi.python.org/pypi/EduData)
 [![License](https://img.shields.io/github/license/bigdata-ustc/EduData)](LICENSE)
+[![DOI](https://zenodo.org/badge/195198356.svg)](https://zenodo.org/badge/latestdoi/195198356)
 
 Convenient interface for downloading and preprocessing dataset in education.
 
@@ -11,9 +12,9 @@ The dataset includes:
 
 * [KDD Cup 2010](https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp) [Analysis] (TBA)
 
-* [ASSISTments](https://sites.google.com/site/assistmentsdata/) [[Analysis]](docs/ASSISTments2009-2010.ipynb)
+* [ASSISTments](https://sites.google.com/site/assistmentsdata/) [[Analysis]](docs/ASSISTments)
 
-* [OLI Engineering Statics 2011](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=507)
+* [OLI Engineering Statics 2011](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=507) [[Analysis]](docs/OLI_Fall2011)
 
 * [JunyiAcademy Math Practicing Log](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=1198) [[Analysis]](docs/junyi.md)
 
@@ -21,17 +22,17 @@ The dataset includes:
 
 * [synthetic](https://github.com/chrispiech/DeepKnowledgeTracing/tree/master/data/synthetic)
 
-* [math2015](http://staff.ustc.edu.cn/~qiliuql/files/Publications/Qi-Liu-TIST2018.pdf) [Analysis] (TBA)
+* [math2015](http://staff.ustc.edu.cn/~qiliuql/files/Publications/Qi-Liu-TIST2018.pdf) [[Analysis]](docs/math2015)
 
 * [EdNet](https://github.com/riiid/ednet)
 
-* [pisa2015math](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc)
+* [pisa2015math](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc) [Analysis] (TBA)
 
 * [workbankr](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc)
 
 * [critlangacq](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc)
 
-* [math23k](http://base.ustc.edu.cn/data/math23k.zip)
+* [math23k](http://base.ustc.edu.cn/data/math23k.zip) [Analysis] (TBA)
 
 * [MOOCCube](http://moocdata.cn/data/MOOCCube) [[Analysis]](docs/MOOCCube.md)
 
@@ -161,7 +162,7 @@ and can be modeled by [XKT](https://github.com/bigdata-ustc/XKT) and TKT(TBA)
 # after preprocessing, a json sequence file, named student_log_kt_1000, can be found in junyi/data/
 # further preprocessing like spliting dataset into train and test can be performed
 >>> edudata train_valid_test junyi/data/student_log_kt_1000 -- --train_ratio 0.8 --valid_ratio 0.1 --test_ratio 0.1
-```  
+```
 
 ### Analysis Dataset
 This tool only supports the `json sequence` format. To check the following statical indexes of the dataset:
@@ -183,6 +184,21 @@ edudata train_valid_test $filename1 $filename2 --train_ratio 0.8 --valid_ratio 0
 edudata kfold $filename1 $filename2 --n_splits 5
 ```
 Refer to [longling](https://longling.readthedocs.io/zh/latest/#dataset) for more tools and detailed information.
+
+## Citation
+
+If this repository is helpful for you, please cite our work
+
+```
+@misc{bigdata2021edudata,
+  title={EduData},
+  author={bigdata-ustc},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  year = {2021},
+  howpublished = {\url{https://github.com/bigdata-ustc/EduData}},
+}
+```
 
 ## More works
 
