@@ -32,7 +32,7 @@ The dataset includes:
 
 * [critlangacq](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc)
 
-* [math23k](http://base.ustc.edu.cn/data/math23k.zip) [Analysis] (TBA)
+* [math23k](http://base.ustc.edu.cn/data/math23k.zip) [[Analysis]](docs/Math23k Analysis Report.ipynb)
 
 * [MOOCCube](http://moocdata.cn/data/MOOCCube) [[Analysis]](docs/MOOCCube.md)
 
