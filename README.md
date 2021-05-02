@@ -4,6 +4,7 @@
 [![codecov](https://codecov.io/gh/bigdata-ustc/EduData/branch/master/graph/badge.svg)](https://codecov.io/gh/bigdata-ustc/EduData)
 [![Download](https://img.shields.io/pypi/dm/EduData.svg?style=flat)](https://pypi.python.org/pypi/EduData)
 [![License](https://img.shields.io/github/license/bigdata-ustc/EduData)](LICENSE)
+[![DOI](https://zenodo.org/badge/195198356.svg)](https://zenodo.org/badge/latestdoi/195198356)
 
 Convenient interface for downloading and preprocessing dataset in education.
 
@@ -13,7 +14,7 @@ The dataset includes:
 
 * [ASSISTments](https://sites.google.com/site/assistmentsdata/) [[Analysis]](docs/ASSISTments)
 
-* [OLI Engineering Statics 2011](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=507) [Analysis] (TBA)
+* [OLI Engineering Statics 2011](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=507) [[Analysis]](docs/OLI_Fall2011)
 
 * [JunyiAcademy Math Practicing Log](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=1198) [[Analysis]](docs/junyi.md)
 
@@ -31,7 +32,7 @@ The dataset includes:
 
 * [critlangacq](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc)
 
-* [math23k](http://base.ustc.edu.cn/data/math23k.zip) [Analysis] (TBA)
+* [math23k](http://base.ustc.edu.cn/data/math23k.zip) [[Analysis]](docs/math23k.ipynb)
 
 * [MOOCCube](http://moocdata.cn/data/MOOCCube) [[Analysis]](docs/MOOCCube.md)
 
@@ -183,6 +184,21 @@ edudata train_valid_test $filename1 $filename2 --train_ratio 0.8 --valid_ratio 0
 edudata kfold $filename1 $filename2 --n_splits 5
 ```
 Refer to [longling](https://longling.readthedocs.io/zh/latest/#dataset) for more tools and detailed information.
+
+## Citation
+
+If this repository is helpful for you, please cite our work
+
+```
+@misc{bigdata2021edudata,
+  title={EduData},
+  author={bigdata-ustc},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  year = {2021},
+  howpublished = {\url{https://github.com/bigdata-ustc/EduData}},
+}
+```
 
 ## More works
 
