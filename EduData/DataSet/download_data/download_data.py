@@ -70,7 +70,9 @@ URL_DICT = {
     "ktbd-ednet":
         "http://base.ustc.edu.cn/data/ktbd/EdNet/",
     "math23k":
-        "http://base.ustc.edu.cn/data/math23k.zip"
+        "http://base.ustc.edu.cn/data/math23k.zip",
+    "open-luna":
+        "http://base.ustc.edu.cn/data/OpenLuna.json",
 }
 
 
