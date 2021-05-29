@@ -74,7 +74,7 @@ URL_DICT = {
     "OLI-Fall-2011":
         "http://base.ustc.edu.cn/data/OLI_data.zip",
     "open-luna":
-        "http://base.ustc.edu.cn/data/OpenLUNA/OpenLUNA.json
+        "http://base.ustc.edu.cn/data/OpenLUNA/OpenLUNA.json"
 }
 
 
