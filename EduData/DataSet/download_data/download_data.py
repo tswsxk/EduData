@@ -72,7 +72,9 @@ URL_DICT = {
     "math23k":
         "http://base.ustc.edu.cn/data/math23k.zip",
     "OLI-Fall-2011":
-        "http://base.ustc.edu.cn/data/OLI_data.zip"
+        "http://base.ustc.edu.cn/data/OLI_data.zip",
+    "open-luna":
+        "http://base.ustc.edu.cn/data/OpenLUNA/OpenLUNA.json"
 }
 
 
