@@ -20,5 +20,7 @@
 
 [Huaying Tang](https://github.com/iamthy)
 
+[Weizhe Huang](https://github.com/weizhehuang0827)
+
 The stared contributors are the main authors. 
 
