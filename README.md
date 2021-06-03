@@ -24,7 +24,7 @@ The dataset includes:
 
 * [math2015](http://staff.ustc.edu.cn/~qiliuql/files/Publications/Qi-Liu-TIST2018.pdf) [[Analysis]](docs/math2015)
 
-* [EdNet](https://github.com/riiid/ednet)
+* [EdNet](https://github.com/riiid/ednet) [[Analysis]](docs/EdNet_KT1/EdNet_KT1.ipynb)
 
 * [pisa2015math](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc) [Analysis] (TBA)
 
