@@ -6,9 +6,9 @@
 [![License](https://img.shields.io/github/license/bigdata-ustc/EduData)](LICENSE)
 [![DOI](https://zenodo.org/badge/195198356.svg)](https://zenodo.org/badge/latestdoi/195198356)
 
-Convenient interface for downloading and preprocessing dataset in education.
+Convenient interface for downloading and preprocessing datasets in education.
 
-The dataset includes:
+The datasets include:
 
 * [KDD Cup 2010](https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp) [Analysis] (TBA)
 
