@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="300" src="docs/EduData.png">
+</p>
+
 # EduData
 [![PyPI](https://img.shields.io/pypi/v/EduData.svg)](https://pypi.python.org/pypi/EduData)
 [![Build Status](https://www.travis-com.org/bigdata-ustc/EduData.svg?branch=master)](https://www.travis-ci.com/bigdata-ustc/EduData)
