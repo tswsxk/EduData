@@ -12,9 +12,9 @@ from bs4 import BeautifulSoup
 from longling import config_logging, LogLevel, path_append, flush_print
 
 try:
-    from .utils import decompress, reporthook4urlretrieve, yes_no, timestamp2time
+    from .utils import decompress, reporthook4urlretrieve, yes_no, timestamp2time, format_byte_sizeof
 except (SystemError, ModuleNotFoundError):  # pragma: no cover
-    from utils import decompress, reporthook4urlretrieve, yes_no, timestamp2time
+    from utils import decompress, reporthook4urlretrieve, yes_no, timestamp2time, format_byte_sizeof
 
 DEFAULT_DATADIR = path_append("./", "", to_str=True)
 
@@ -155,9 +155,8 @@ def download_file(url, save_path, override, chunksize=65535):
         for chunk in res.iter_content(chunksize):
             f.write(chunk)
             downloaded += len(chunk)
-            # TODO:如何显示下载进度
-            flush_print('Downloading %s %.2f%%: %d | %d' % (save_path, downloaded / file_origin_size * 100,
-                        downloaded, file_origin_size))
+            flush_print('Downloading %s %.2f%%: %s | %s' % (save_path, downloaded / file_origin_size * 100,
+                        format_byte_sizeof(downloaded), format_byte_sizeof(file_origin_size)))
 
     # urlretrieve(url, save_path, reporthook=reporthook4urlretrieve)
     print()
