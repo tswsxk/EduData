@@ -1,2 +1,6 @@
+* 0.0.16:
+    1. update reporthook4urlretrieve, supporting dynamic unit displaying
+    2. return unzip filepath instead of the original one when downloading zipped files
+
 * 0.0.15:
     1. add OpenLuna dataset!

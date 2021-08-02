@@ -11,10 +11,7 @@ import requests
 from bs4 import BeautifulSoup
 from longling import config_logging, LogLevel, path_append, flush_print
 
-try:
-    from .utils import decompress, reporthook4urlretrieve, yes_no, timestamp2time
-except (SystemError, ModuleNotFoundError):  # pragma: no cover
-    from utils import decompress, reporthook4urlretrieve, yes_no, timestamp2time
+from .utils import decompress, reporthook4urlretrieve, timestamp2time, format_byte_sizeof, get_uz_path
 
 DEFAULT_DATADIR = path_append("./", "", to_str=True)
 
@@ -105,15 +102,15 @@ def get_dataset_name():  # pragma: no cover
 
 def download_file(url, save_path, override, chunksize=65535):
     downloaded = 0
+    resume_tag = False
     if os.path.exists(save_path) and override:
         logger.info(save_path + ' will be overridden.')
     elif os.path.exists(save_path):
         # Resume download
         downloaded = os.stat(save_path).st_size
         local_timestamp = os.path.getctime(save_path)
-        logger.info("{} already exists. Send resume request after {} bytes".format(
-            save_path, downloaded))
-        # raise FileExistsError()
+        resume_tag = True
+
     old_downloaded = downloaded
 
     headers = {}
@@ -138,11 +135,7 @@ def download_file(url, save_path, override, chunksize=65535):
             mode = 'ab+'
 
     elif res.status_code == 416:
-        # 416 means Range field not support
-        # TODO:需要重新下载吗
-        logger.warning("Range not support. Redownloading...")
-        urlretrieve(url, save_path, reporthook=reporthook4urlretrieve)
-        return
+        raise FileExistsError
 
     elif res.status_code == 412:
         # 如果所请求的资源在指定的时间之后发生了修改，那么会返回 412 (Precondition Failed) 错误。
@@ -150,18 +143,18 @@ def download_file(url, save_path, override, chunksize=65535):
         urlretrieve(url, save_path, reporthook=reporthook4urlretrieve)
         return
 
+    if resume_tag:
+        logger.info("{} already exists. Send resume request after {}".format(save_path, format_byte_sizeof(downloaded)))
     file_origin_size = content_len + old_downloaded
     with open(save_path, mode) as f:
         for chunk in res.iter_content(chunksize):
             f.write(chunk)
             downloaded += len(chunk)
-            # TODO:如何显示下载进度
-            flush_print('Downloading %s %.2f%%: %d | %d' % (save_path, downloaded / file_origin_size * 100,
-                        downloaded, file_origin_size))
-
-    # urlretrieve(url, save_path, reporthook=reporthook4urlretrieve)
+            flush_print('Downloading %s %.2f%%: %s | %s' % (save_path, downloaded / file_origin_size * 100,
+                                                            format_byte_sizeof(downloaded),
+                                                            format_byte_sizeof(file_origin_size)))
     print()
-    decompress(save_path)
+    return decompress(save_path)
 
 
 def download_data(url, data_dir, override, bloom_filter: set = None):
@@ -186,14 +179,13 @@ def download_data(url, data_dir, override, bloom_filter: set = None):
                 if url_h not in bloom_filter:
                     download_data(url_h, _data_dir, override, bloom_filter)
         bloom_filter.add(url)
-
+        return _data_dir
     else:
         os.makedirs(data_dir, exist_ok=True)
         save_path = path_append(data_dir, url.split('/')[-1], to_str=True)
-        download_file(url, save_path, override)
+        _data_dir = download_file(url, save_path, override)
         bloom_filter.add(url)
-
-    return data_dir
+        return _data_dir
 
 
 def get_data(dataset, data_dir=DEFAULT_DATADIR, override=False, url_dict: dict = None):
@@ -222,14 +214,12 @@ def get_data(dataset, data_dir=DEFAULT_DATADIR, override=False, url_dict: dict =
         raise ValueError("%s is neither a valid dataset name nor an url" % dataset)
 
     save_path = path_append(data_dir, url.split('/')[-1], to_str=True)
-    # if os.path.exists(save_path):
-    #     ans = yes_no("Find File Exist Resume Download (No means Override)?[Y/n]")
-    #     override = not ans
 
     try:
         return download_data(url, data_dir, override)
     except FileExistsError:
-        return save_path
+        logger.info("file existed, skipped")
+        return get_uz_path(save_path)
 
 
 def list_resources():
