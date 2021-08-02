@@ -15,11 +15,11 @@ def decompress(file):  # pragma: no cover
     for z in [".tar.gz", ".tar.bz2", ".tar.bz", ".tar.tgz", ".tar", ".tgz", ".zip", ".rar"]:
         if file.endswith(z):
             if z == ".zip":
-                un_zip(file)
+                return un_zip(file)
             elif z == ".rar":
-                un_rar(file)
+                return un_rar(file)
             else:
-                un_tar(file)
+                return un_tar(file)
 
 
 def get_path(file):  # pragma: no cover
@@ -36,6 +36,7 @@ def un_zip(file):  # pragma: no cover
     for name in zip_file.namelist():
         zip_file.extract(name, uz_path)
     zip_file.close()
+    return uz_path
 
 
 def un_rar(file):  # pragma: no cover
@@ -43,6 +44,7 @@ def un_rar(file):  # pragma: no cover
     uz_path = get_path(file)
     logger.info(file + " is unrar to " + uz_path)
     rar_file.extractall(uz_path)
+    return uz_path
 
 
 def un_tar(file):  # pragma: no cover
@@ -50,6 +52,7 @@ def un_tar(file):  # pragma: no cover
     uz_path = get_path(file)
     logger.info(file + " is untar to " + uz_path)
     tar_file.extractall(path=uz_path)
+    return uz_path
 
 
 def yes_no(ask):
