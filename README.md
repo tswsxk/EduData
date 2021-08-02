@@ -1,14 +1,18 @@
+<p align="center">
+  <img width="300" src="docs/EduData.png">
+</p>
+
 # EduData
 [![PyPI](https://img.shields.io/pypi/v/EduData.svg)](https://pypi.python.org/pypi/EduData)
-[![Build Status](https://www.travis-ci.org/bigdata-ustc/EduData.svg?branch=master)](https://www.travis-ci.org/bigdata-ustc/EduData)
+[![Build Status](https://www.travis-com.org/bigdata-ustc/EduData.svg?branch=master)](https://www.travis-ci.com/bigdata-ustc/EduData)
 [![codecov](https://codecov.io/gh/bigdata-ustc/EduData/branch/master/graph/badge.svg)](https://codecov.io/gh/bigdata-ustc/EduData)
 [![Download](https://img.shields.io/pypi/dm/EduData.svg?style=flat)](https://pypi.python.org/pypi/EduData)
 [![License](https://img.shields.io/github/license/bigdata-ustc/EduData)](LICENSE)
 [![DOI](https://zenodo.org/badge/195198356.svg)](https://zenodo.org/badge/latestdoi/195198356)
 
-Convenient interface for downloading and preprocessing dataset in education.
+Convenient interface for downloading and preprocessing datasets in education.
 
-The dataset includes:
+The datasets include:
 
 * [KDD Cup 2010](https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp) [Analysis] (TBA)
 
@@ -24,7 +28,7 @@ The dataset includes:
 
 * [math2015](http://staff.ustc.edu.cn/~qiliuql/files/Publications/Qi-Liu-TIST2018.pdf) [[Analysis]](docs/math2015)
 
-* [EdNet](https://github.com/riiid/ednet)
+* [EdNet](https://github.com/riiid/ednet) [[Analysis]](docs/EdNet_KT1/EdNet_KT1.ipynb)
 
 * [pisa2015math](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc) [Analysis] (TBA)
 
@@ -35,6 +39,8 @@ The dataset includes:
 * [math23k](http://base.ustc.edu.cn/data/math23k.zip) [[Analysis]](docs/math23k.ipynb)
 
 * [MOOCCube](http://moocdata.cn/data/MOOCCube) [[Analysis]](docs/MOOCCube.md)
+
+* [OpenLUNA](http://base.ustc.edu.cn/data/OpenLUNA/)
 
 Your can also visit our datashop [BaseData](http://base.ustc.edu.cn/data/) to get those mentioned-above (most of them) datasets.
 
