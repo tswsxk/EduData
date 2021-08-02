@@ -19,6 +19,7 @@ def decompress(file):  # pragma: no cover
                 return un_rar(file)
             else:
                 return un_tar(file)
+    return file
 
 
 def get_path(file):  # pragma: no cover
