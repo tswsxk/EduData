@@ -1,10 +1,14 @@
 # coding: utf-8
 # create by tongshiwei on 2019-8-16
+import logging
 import tarfile
 import zipfile
 import rarfile
 
 from longling import flush_print
+
+
+logger = logging.getLogger("downloader")
 
 
 def decompress(file):  # pragma: no cover
@@ -28,7 +32,7 @@ def get_path(file):  # pragma: no cover
 def un_zip(file):  # pragma: no cover
     zip_file = zipfile.ZipFile(file)
     uz_path = get_path(file)
-    print(file + " is unzip to " + uz_path)
+    logger.info(file + " is unzip to " + uz_path)
     for name in zip_file.namelist():
         zip_file.extract(name, uz_path)
     zip_file.close()
@@ -37,14 +41,14 @@ def un_zip(file):  # pragma: no cover
 def un_rar(file):  # pragma: no cover
     rar_file = rarfile.RarFile(file)
     uz_path = get_path(file)
-    print(file + " is unrar to " + uz_path)
+    logger.info(file + " is unrar to " + uz_path)
     rar_file.extractall(uz_path)
 
 
 def un_tar(file):  # pragma: no cover
     tar_file = tarfile.open(file)
     uz_path = get_path(file)
-    print(file + " is untar to " + uz_path)
+    logger.info(file + " is untar to " + uz_path)
     tar_file.extractall(path=uz_path)
 
 
