@@ -7,7 +7,6 @@ import rarfile
 
 from longling import flush_print
 
-
 logger = logging.getLogger("downloader")
 
 
@@ -53,20 +52,6 @@ def un_tar(file):  # pragma: no cover
     logger.info(file + " is untar to " + uz_path)
     tar_file.extractall(path=uz_path)
     return uz_path
-
-
-def yes_no(ask):
-    yes = set(['yes', 'y', 'ye', ''])
-    no = set(['no', 'n'])
-
-    while True:
-        choice = input(ask)
-        if choice in yes:
-            return True
-        elif choice in no:
-            return False
-        else:
-            print("Illegal input! Please respond with 'yes' or 'no'")
 
 
 def timestamp2time(time_stamp):
