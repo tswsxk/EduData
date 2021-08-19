@@ -16,7 +16,7 @@ The datasets include:
 
 * [KDD Cup 2010](https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp) [[Analysis]](https://github.com/bigdata-ustc/EduData/blob/master/docs/KDD%20Cup%202010.ipynb)
 
-* [ASSISTments](https://sites.google.com/site/assistmentsdata/) [[Analysis]](docs/ASSISTments)
+* [ASSISTments (2009-2010, 2012-2013, 2015, 2017)](https://sites.google.com/site/assistmentsdata/) [[Analysis]](docs/ASSISTments)
 
 * [OLI Engineering Statics 2011](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=507) [[Analysis]](docs/OLI_Fall2011)
 
