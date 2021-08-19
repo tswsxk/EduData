@@ -11,7 +11,7 @@ test_deps = [
 
 setup(
     name='EduData',
-    version='0.0.16',
+    version='0.0.17',
     extras_require={
         'test': test_deps,
     },

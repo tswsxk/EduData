@@ -1,3 +1,6 @@
+* 0.0.17:
+    1. add assistment-2017 dataset!
+
 * 0.0.16:
     1. update reporthook4urlretrieve, supporting dynamic unit displaying
     2. return unzip filepath instead of the original one when downloading zipped files

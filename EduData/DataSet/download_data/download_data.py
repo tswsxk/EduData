@@ -26,6 +26,8 @@ URL_DICT = {
         "http://base.ustc.edu.cn/data/ASSISTment/2012-2013-data-with-predictions-4-final.zip",
     "assistment-2015":
         "http://base.ustc.edu.cn/data/ASSISTment/2015_100_skill_builders_main_problems.zip",
+    "assistment-2017":
+        "http://base.ustc.edu.cn/data/ASSISTment/anonymized_full_release_competition_dataset.zip",
     "junyi":
         "http://base.ustc.edu.cn/data/JunyiAcademy_Math_Practicing_Log/junyi.rar",
     "KDD-CUP-2010":
