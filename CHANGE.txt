@@ -1,3 +1,6 @@
+* 0.0.18:
+    1. add NIPS2020 dataset!
+
 * 0.0.17:
     1. add assistment-2017 dataset!
 
