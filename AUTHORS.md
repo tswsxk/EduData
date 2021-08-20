@@ -22,5 +22,7 @@
 
 [Weizhe Huang](https://github.com/weizhehuang0827)
 
+[Haoxiang Guan](https://github.com/gguu1314)
+
 The stared contributors are the main authors. 
 
