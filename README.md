@@ -14,9 +14,9 @@ Convenient interface for downloading and preprocessing datasets in education.
 
 The datasets include:
 
-* [KDD Cup 2010](https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp) [[Analysis]](https://github.com/bigdata-ustc/EduData/blob/master/docs/KDD%20Cup%202010.ipynb)
-
 * [ASSISTments (2009-2010, 2012-2013, 2015, 2017)](https://sites.google.com/site/assistmentsdata/) [[Analysis]](docs/ASSISTments)
+
+* [KDD Cup 2010](https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp) [[Analysis]](https://github.com/bigdata-ustc/EduData/blob/master/docs/KDD%20Cup%202010.ipynb)
 
 * [OLI Engineering Statics 2011](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=507) [[Analysis]](docs/OLI_Fall2011)
 
@@ -39,6 +39,8 @@ The datasets include:
 * [math23k](http://base.ustc.edu.cn/data/math23k.zip) [[Analysis]](docs/math23k.ipynb)
 
 * [MOOCCube](http://moocdata.cn/data/MOOCCube) [[Analysis]](docs/MOOCCube.md)
+
+* [NIPS2020](https://www.microsoft.com/en-us/research/academic-program/diagnostic-questions/)
 
 * [OpenLUNA](http://base.ustc.edu.cn/data/OpenLUNA/)
 
