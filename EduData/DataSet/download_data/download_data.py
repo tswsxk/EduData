@@ -32,6 +32,8 @@ URL_DICT = {
         "http://base.ustc.edu.cn/data/JunyiAcademy_Math_Practicing_Log/junyi.rar",
     "KDD-CUP-2010":
         "http://base.ustc.edu.cn/data/KDD_Cup_2010/",
+    "NIPS-2020":
+        "http://base.ustc.edu.cn/data/NIPS2020/public_data.zip",
     "slepemapy.cz":
         "http://base.ustc.edu.cn/data/slepemapy.cz/",
     "synthetic":
