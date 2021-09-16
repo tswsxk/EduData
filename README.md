@@ -30,7 +30,7 @@ The datasets include:
 
 * [EdNet](https://github.com/riiid/ednet) [[Analysis]](docs/EdNet_KT1/EdNet_KT1.ipynb)
 
-* [pisa2015math](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc) [Analysis] (TBA)
+* [pisa2015math](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc) [[Analysis]](docs/pisa2015math.ipynb) (TBA)
 
 * [workbankr](https://drive.google.com/drive/folders/1ja9P5yzeUDyzzm748p5JObAEs_Evysgc)
 
