@@ -20,7 +20,7 @@ The datasets include:
 
 * [OLI Engineering Statics 2011](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=507) [[Analysis]](docs/OLI_Fall2011)
 
-* [JunyiAcademy Math Practicing Log](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=1198) [[Analysis]](docs/junyi.md)
+* [JunyiAcademy Math Practicing Log](https://pslcdatashop.web.cmu.edu/DatasetInfo?datasetId=1198) [[Analysis]](docs/junyi/junyi.ipynb)
 
 * [slepemapy.cz](https://www.fi.muni.cz/adaptivelearning/?a=data)
 
@@ -75,7 +75,7 @@ edudata -- --help
 edudata $subcommand --help
 ```
 
-The cli tools is constructed based on [fire](https://github.com/google/python-fire). 
+The cli tools is constructed based on [fire](https://github.com/google/python-fire).
 Refer to the [documentation](https://github.com/google/python-fire/blob/master/docs/using-cli.md) for detailed usage.
 
 ## Download Dataset
@@ -126,9 +126,9 @@ In Knowledge Tracing task, there is a popular format (we named it `triple line (
 ```
 which can be found in [Deep Knowledge Tracing](https://github.com/chrispiech/DeepKnowledgeTracing/tree/master/data/assistments).
 In this format, three lines are composed of an interaction sequence.
-The first line indicates the length of the interaction sequence, 
-and the second line represents the exercise id followed by the third line, 
-where each elements stands for correct answer (i.e., 1) or wrong answer (i.e., 0) 
+The first line indicates the length of the interaction sequence,
+and the second line represents the exercise id followed by the third line,
+where each elements stands for correct answer (i.e., 1) or wrong answer (i.e., 0)
 
 
 In order to deal with the issue that some special symbols are hard to be stored in the mentioned-above format,
@@ -137,9 +137,9 @@ we offer another one format, named `json sequence` to represent the interaction 
 [[419, 1], [419, 1], [419, 1], [665, 0], [665, 0]]
 ```
 
-Each item in the sequence represent one interaction. The first element of the item is the exercise 
-id (in some works, the exercise id is not one-to-one mapped to one knowledge unit(ku)/concept, 
-but in junyi, one exercise contains one ku) 
+Each item in the sequence represent one interaction. The first element of the item is the exercise
+id (in some works, the exercise id is not one-to-one mapped to one knowledge unit(ku)/concept,
+but in junyi, one exercise contains one ku)
 and the second one indicates whether the learner correctly answer the exercise, 0 for wrongly while 1 for correctly  
 One line, one `json` record, which is corresponded to a learner's interaction sequence.
 
@@ -154,8 +154,8 @@ edudata json2tl $src $tar
 ```
 
 ### Dataset Preprocess
-The cli tools to quickly convert the "raw" data of the dataset into "mature" data for knowledge tracing task. 
-The "mature" data is in `json sequence` format 
+The cli tools to quickly convert the "raw" data of the dataset into "mature" data for knowledge tracing task.
+The "mature" data is in `json sequence` format
 and can be modeled by [XKT](https://github.com/bigdata-ustc/XKT) and TKT(TBA)
 
 #### junyi
@@ -184,7 +184,7 @@ edudata kt_stat $filename
 ```
 
 ### Evaluation
-In order to better verify the effectiveness of model, 
+In order to better verify the effectiveness of model,
 the dataset is usually divided into `train/valid/test` or using `kfold` method.
 
 ```shell

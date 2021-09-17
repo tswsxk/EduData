@@ -26,5 +26,6 @@
 
 [Zirui Hu](https://github.com/SimpleButNotNaive)
 
-The stared contributors are the main authors. 
+[Yuting Hong](https://github.com/ViviHong200709)
 
+The stared contributors are the main authors.
