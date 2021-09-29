@@ -22,7 +22,6 @@ def copy_tree(src, tar):
 
 
 copy_tree("../../examples", "build/blitz")
-copy_tree("../../asset", "build/asset")
 
 import sphinx_rtd_theme
 
