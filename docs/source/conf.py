@@ -47,8 +47,6 @@ extensions = [
     'nbsphinx',
     'sphinx_gallery.load_style',
     'm2r2',
-    'IPython.sphinxext.ipython_console_highlighting',
-    'IPython.sphinxext.ipython_directive'
 ]
 
 # extension variables setting
