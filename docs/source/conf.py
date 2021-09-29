@@ -52,7 +52,8 @@ extensions = [
 # extension variables setting
 # npsphinx
 
-#此处为gallary图片添加处，所留的图片不存在为示范
+#add gallary picture.
+#This is an example introducing how to add gallary picture, the picture and document is non-existent.
 nbsphinx_thumbnails = {
     'build/blitz/sif/sif': '_static/sif.png',
 }
