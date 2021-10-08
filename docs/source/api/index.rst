@@ -3,6 +3,7 @@ EduData
 
 EduData.DataSet
 ----------------------
+
 .. automodule:: EduData.DataSet.download_data
    :members:
    :imported-members:
