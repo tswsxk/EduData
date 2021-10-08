@@ -4,7 +4,7 @@ EduData.DataSet
    :members:
    :imported-members:
 
-.. automodule:: EduData.DataSet.EdNet
+.. automodule:: EduData.DataSet.EdNet.KnowledgeTracing
    :members:
    :imported-members:
 
