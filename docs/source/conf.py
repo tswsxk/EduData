@@ -47,6 +47,9 @@ extensions = [
     'nbsphinx',
     'sphinx_gallery.load_style',
     'm2r2',
+    'sphinx.ext.todo',
+    'sphinx.ext.coverage',
+    'sphinx.ext.mathjax', 'sphinx.ext.napoleon'
 ]
 
 # extension variables setting
