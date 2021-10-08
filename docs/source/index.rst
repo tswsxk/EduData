@@ -301,7 +301,6 @@ Refer to our `website <http://base.ustc.edu.cn/>`_ and `github <https://github.c
    tutorial/zh/DataSet
    tutorial/zh/Task
 
-
 .. toctree::
    :maxdepth: 2
    :caption: API Reference
