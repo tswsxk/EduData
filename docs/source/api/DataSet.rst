@@ -16,3 +16,6 @@ EduData.DataSet
 .. automodule:: EduData.DataSet.synthetic
    :members:
    :imported-members:
+
+end
+-----------
