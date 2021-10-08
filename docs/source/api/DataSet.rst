@@ -1,7 +1,7 @@
 EduData.DataSet
 ----------------------
 
-.. automodule:: EduData.DataSet.download_data.download_data
+.. automodule:: EduData.DataSet.download_data.download_data.download_data
    :members:
    :imported-members:
 
@@ -9,7 +9,11 @@ EduData.DataSet
    :members:
    :imported-members:
 
-.. automodule:: EduData.DataSet.junyi
+.. automodule:: EduData.DataSet.junyi.junyi
+   :members:
+   :imported-members:
+
+.. automodule:: EduData.DataSet.junyi.junyi.KnowledgeTracing
    :members:
    :imported-members:
 
