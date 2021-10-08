@@ -303,7 +303,7 @@ Refer to our `website <http://base.ustc.edu.cn/>`_ and `github <https://github.c
 
 .. toctree::
    :maxdepth: 2
-   :caption: API Reference
+   :caption: API
    :hidden:
    :glob:
 
