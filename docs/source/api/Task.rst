@@ -8,6 +8,3 @@ EduData.Task
 .. autoclass:: EduData.Task.KnowledgeTracing.graph
    :members:
    :imported-members:
-
-end21312
------------
