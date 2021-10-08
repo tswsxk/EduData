@@ -44,7 +44,6 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.mathjax',
     'sphinx_toggleprompt',
-    'sphinx_automodapi.automodapi',
     'nbsphinx',
     'sphinx_gallery.load_style',
     'm2r2',
