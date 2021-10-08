@@ -9,11 +9,7 @@ EduData.DataSet
    :members:
    :imported-members:
 
-.. automodule:: EduData.DataSet.junyi.junyi
-   :members:
-   :imported-members:
-
-.. automodule:: EduData.DataSet.junyi.junyi.KnowledgeTracing
+.. automodule:: EduData.DataSet.junyi
    :members:
    :imported-members:
 

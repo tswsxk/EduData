@@ -308,6 +308,6 @@ Refer to our `website <http://base.ustc.edu.cn/>`_ and `github <https://github.c
    :hidden:
    :glob:
 
-   api/DataSet
-   api/Task
+   api/dataset
+   api/task
    
