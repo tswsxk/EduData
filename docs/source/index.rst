@@ -302,7 +302,7 @@ Refer to our `website <http://base.ustc.edu.cn/>`_ and `github <https://github.c
    tutorial/zh/Task
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: API Reference
    :hidden:
    :glob:
