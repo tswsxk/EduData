@@ -37,7 +37,6 @@ author = 'bigdata-ustc'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinx.ext.viewcode',
@@ -47,9 +46,7 @@ extensions = [
     'nbsphinx',
     'sphinx_gallery.load_style',
     'm2r2',
-    'sphinx.ext.todo',
-    'sphinx.ext.coverage',
-    'sphinx.ext.mathjax', 'sphinx.ext.napoleon'
+    'sphinx.ext.autodoc',
 ]
 
 # extension variables setting
