@@ -303,9 +303,9 @@ Refer to our `website <http://base.ustc.edu.cn/>`_ and `github <https://github.c
 
 .. toctree::
    :maxdepth: 2
-   :caption: API
+   :caption: API Reference
    :hidden:
    :glob:
 
-   api/dataset
-   api/task
+   api/DataSet
+   api/Task
