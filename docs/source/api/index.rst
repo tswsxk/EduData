@@ -4,11 +4,11 @@ EduData
 EduData.DataSet
 ----------------------
 
-.. automodule:: EduData.DataSet.download_data
+.. automodule:: EduData.DataSet.download_data.download_data.download_data
    :members:
    :imported-members:
 
-.. automodule:: EduData.DataSet.EdNet
+.. automodule:: EduData.DataSet.EdNet.utils
    :members:
    :imported-members:
 
@@ -23,7 +23,10 @@ EduData.DataSet
 EduData.Task
 ---------------------
 
-.. automodule:: EduData.Task.KnowledgeTracing
+.. automodule:: EduData.Task.KnowledgeTracing.format
    :members:
    :imported-members:
 
+.. automodule:: EduData.Task.KnowledgeTracing.graph
+   :members:
+   :imported-members:
