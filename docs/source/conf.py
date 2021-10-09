@@ -38,6 +38,7 @@ author = 'bigdata-ustc'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.automodule'
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinx.ext.viewcode',
