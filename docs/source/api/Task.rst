@@ -1,10 +1,10 @@
 EduData.Task
 ---------------------
 
-.. autoclass:: EduData.Task.KnowledgeTracing.format
+.. automodule:: EduData.Task.KnowledgeTracing.format
    :members:
    :imported-members:
 
-.. autoclass:: EduData.Task.KnowledgeTracing.graph
+.. automodule:: EduData.Task.KnowledgeTracing.graph
    :members:
    :imported-members:
