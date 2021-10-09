@@ -16,3 +16,5 @@ beautifulsoup4
 longling
 rarfile
 networkx
+numpy
+pandas
