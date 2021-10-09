@@ -13,3 +13,4 @@ nbsphinx
 m2r2
 bs4
 beautifulsoup4
+longling
