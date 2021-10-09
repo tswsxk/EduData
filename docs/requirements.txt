@@ -18,3 +18,4 @@ rarfile
 networkx
 numpy
 pandas
+scipy
