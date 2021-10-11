@@ -3,9 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-===============================================
+=================================================
 Welcome to EduData's Tutorials and Documentation
-===============================================
+=================================================
 .. Logo
 .. image:: _static/EduData.png
    :width: 200px
@@ -301,7 +301,6 @@ Refer to our `website <http://base.ustc.edu.cn/>`_ and `github <https://github.c
    tutorial/zh/DataSet
    tutorial/zh/Task
 
-
 .. toctree::
    :maxdepth: 2
    :caption: API Reference
@@ -310,4 +309,3 @@ Refer to our `website <http://base.ustc.edu.cn/>`_ and `github <https://github.c
 
    api/DataSet
    api/Task
-   

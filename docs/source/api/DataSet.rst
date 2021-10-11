@@ -1,17 +1,18 @@
 EduData.DataSet
 ----------------------
-.. automodule:: EduData.DataSet.download_data
+
+.. automodule:: EduData.DataSet
    :members:
    :imported-members:
 
-.. automodule:: EduData.DataSet.EdNet
+.. automodule:: EduData.DataSet.junyi.KnowledgeTracing
    :members:
    :imported-members:
 
-.. automodule:: EduData.DataSet.junyi
+.. automodule:: EduData.DataSet.download_data.download_data.download_data
    :members:
    :imported-members:
 
-.. automodule:: EduData.DataSet.synthetic
+.. automodule:: EduData.DataSet.EdNet.utils
    :members:
    :imported-members:
