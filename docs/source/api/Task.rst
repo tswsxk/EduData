@@ -8,8 +8,3 @@ EduData.Task
 .. automodule:: EduData.Task.KnowledgeTracing.graph
    :members:
    :imported-members:
-
-.. automodule:: EduData.Task.KnowledgeTracing.statistics
-   :members:
-   :imported-members:
-
