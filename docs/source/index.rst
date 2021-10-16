@@ -298,8 +298,10 @@ Refer to our `website <http://base.ustc.edu.cn/>`_ and `github <https://github.c
    :hidden:
 
    tutorial/zh/index
-   tutorial/zh/DataSet
-   tutorial/zh/Task
+   tutorial/zh/installation
+   tutorial/zh/cli
+   tutorial/zh/sequence
+   tutorial/zh/graph
 
 .. toctree::
    :maxdepth: 2

@@ -1,5 +1,13 @@
 入门
 =====
 
-*  `DataSet <DataSet.rst>`_ 
-*  `Task <Task.rst>`_ 
+1. 安装本项目，安装方法见 :doc:`installation`
+
+#. 通过 ``ls`` 命令列出本项目中的数据集，然后选择其中之一使用 ``download`` 下载，所有命令的使用方法见 :doc:`cli`
+
+#. 使用 ``dataset`` 命令组中的命令处理数据集，从中构建出学生的 :doc:`回答序列 <sequence>`，``kt_stat`` 命令可用于统计回答序列中的一些信息。
+
+.. note::
+	现在还只支持junyi和EdNet两个数据集
+
+4. 使用 ``graph`` 命令组中的命令处理回答序列，得到知识点之间的 :doc:`关系图 <graph>`， ``edge_stat`` 可用于统计图中边的一些信息
