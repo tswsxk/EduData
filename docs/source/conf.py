@@ -21,7 +21,26 @@ def copy_tree(src, tar):
     shutil.copytree(src, tar)
 
 
-copy_tree("../../examples", "build/blitz")
+
+analysis_dirs = ["ASSISTments", "EdNet_KT1", "math2015", "junyi", "OLI_Fall2011"]
+analysis_files = \
+    [f for f in os.listdir("../")  \
+        if os.path.isfile(os.path.join("../", f)) and f.endswith(".ipynb")]
+
+def copy_ipynbs(tar):
+    if os.path.exists(tar):
+        shutil.rmtree(tar)
+    
+    for analysis_dir in analysis_dirs:
+        tar_dir = os.path.join(tar, analysis_dir)
+        src_dir = os.path.join("../", analysis_dir)
+        shutil.copytree(src_dir, tar_dir)
+
+    for analysis_file in analysis_files:
+        shutil.copyfile(os.path.join("../", analysis_file), os.path.join(tar, analysis_file))
+
+
+copy_ipynbs("./build/blitz")
 
 import sphinx_rtd_theme
 

@@ -293,7 +293,7 @@ Refer to our `website <http://base.ustc.edu.cn/>`_ and `github <https://github.c
    tutorial/en/index
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
    :caption: 用户指南
    :hidden:
 
@@ -302,6 +302,8 @@ Refer to our `website <http://base.ustc.edu.cn/>`_ and `github <https://github.c
    tutorial/zh/cli
    tutorial/zh/sequence
    tutorial/zh/graph
+   tutorial/zh/DataSet
+   tutorial/zh/Task
 
 .. toctree::
    :maxdepth: 2
