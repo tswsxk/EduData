@@ -8,5 +8,5 @@
 'fire',
 'lxml',
 'numpy>=1.16.5',
-'scipy>=1.2.0',
+'scipy>=1.7.1',
 'scikit-learn>=0.23.2',
