@@ -1,4 +1,7 @@
 EduData.DataSet
+============================
+
+EduData.DataSet.download_data
 ----------------------
 
 .. automodule:: EduData.DataSet
