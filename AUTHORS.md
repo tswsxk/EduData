@@ -30,4 +30,6 @@
 
 [Meikai Bao](https://github.com/BAOOOOOM)
 
+[Shizhe Zhu](https://github.com/icarushhh)
+
 The stared contributors are the main authors.
