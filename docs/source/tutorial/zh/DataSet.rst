@@ -8,9 +8,12 @@ ASSISTments
     :name: assistment_gallery
     :glob:
 
+    Analysis for ASSISTments2009-2010 <../../build/blitz/ASSISTments/ASSISTments2009-2010>
+
     Analysis for ASSISTments2015 <../../build/blitz/ASSISTments/ASSISTments2015>
 
-    Analysis for ASSISTments2009-2015 <../../build/blitz/ASSISTments/ASSISTments2009-2010>
+    Analysis for ASSISTments2017 <../../build/blitz/ASSISTments/ASSISTments2017>
+
 
 EdNet
 ------------------------------
