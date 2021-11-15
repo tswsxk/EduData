@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/github/license/bigdata-ustc/EduData)](LICENSE)
 [![DOI](https://zenodo.org/badge/195198356.svg)](https://zenodo.org/badge/latestdoi/195198356)
 
-Convenient interface for downloading and preprocessing datasets in education.
+Convenient interface for downloading and preprocessing datasets in education. For more details, please refer to the full [documentation](https://edudata.readthedocs.io/en/latest).
 
 The [datasets](https://edudata.readthedocs.io/en/latest/tutorial/zh/DataSet.html) include:
 
