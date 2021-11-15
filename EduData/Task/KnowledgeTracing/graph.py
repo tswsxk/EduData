@@ -512,7 +512,7 @@ def correct_co_influence_graph(ku_num, *src, tar=None, input_is_file=True):  # p
 
     for i in range(ku_num):
         for j in range(i + 1, ku_num):
-            count_graph[i][j] = count_graph[i][j] + count_graph[j][i] / (
+            count_graph[i][j] = (count_graph[i][j] + count_graph[j][i]) / (
                     abs(count_graph[i][j] - count_graph[j][i]) + 1e-8)
             count_graph[j][i] = count_graph[i][j]
 

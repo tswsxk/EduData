@@ -62,7 +62,7 @@ def _write(students, target):
 def _frequency(students):
     frequency = {}
     for student_id, sessions in tqdm(students.items(), "calculating frequency"):
-        frequency[student_id] = sum([len(session) for session in sessions])
+        frequency[student_id] = sum([len(sessions[session]) for session in sessions])
     return sorted(frequency.items(), key=lambda x: x[1], reverse=True)
 
 
