@@ -24,10 +24,5 @@
 
 [Haoxiang Guan](https://github.com/gguu1314)
 
-[Zirui Hu](https://github.com/SimpleButNotNaive)
+The stared contributors are the main authors. 
 
-[Yuting Hong](https://github.com/ViviHong200709)
-
-[Meikai Bao](https://github.com/BAOOOOOM)
-
-The stared contributors are the main authors.
