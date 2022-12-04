@@ -289,6 +289,10 @@ def correct_transition_graph(ku_num, *src, tar=None, input_is_file=True, diagona
     >>> _seq = [[[0, 1], [1, 1], [1, 1], [2, 1]]]
     >>> correct_transition_graph(3, _seq, input_is_file=False)
     [[0.0, 1.0, 0.0], [0.0, 0.0, 1.0], [0.0, 0.0, 0.0]]
+
+    Notes
+    ------
+    This function is used to generate the correct_transition_graph.json referred in the paper.
     """
     count_graph = correct_transition_count_graph(ku_num, *src, tar=None, input_is_file=input_is_file)
     _transition_graph = _row_normalize(count_graph, diagonal_value, skip_zero_row=True)
@@ -506,18 +510,22 @@ def correct_co_influence_graph(ku_num, *src, tar=None, input_is_file=True):  # p
     array([[0., 1., 0.],
            [1., 0., 0.],
            [0., 0., 0.]])
+    Notes
+    ------
+    This function is used to generate ccon_graph.json referred in the paper.
+    And the initial version has bugs, which has been fixed,
+    thus there are some differences between the experiment data in the paper and the new genreted ones.
     """
-    warnings.warn("do not use this function due to the lack of support from theory")
     count_graph = correct_transition_count_graph(ku_num, *src, tar=None, input_is_file=input_is_file)
 
     for i in range(ku_num):
         for j in range(i + 1, ku_num):
             count_graph[i][j] = (count_graph[i][j] + count_graph[j][i]) / (
-                    abs(count_graph[i][j] - count_graph[j][i]) + 1e-8)
+                    abs(count_graph[i][j] - count_graph[j][i]) + 1e-1)
             count_graph[j][i] = count_graph[i][j]
 
     count_graph = np.asarray(count_graph)
-    _concurrence_graph = softmax(count_graph) * 2
+    _concurrence_graph = (count_graph - count_graph.min()) / (count_graph.max() - count_graph.min())
 
     if tar is not None:
         _output_graph(_concurrence_graph, tar)
